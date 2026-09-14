@@ -4,268 +4,1262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gajeshwaran | IT Support Portfolio</title>
+    <meta name="description" content="Gajeshwaran Devakumar - Service Desk, IT Support and Technical Support professional based in Auckland, New Zealand.">
+
+    <title>Gajeshwaran Devakumar | IT Support Portfolio</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #f5f7fa;
-        }
-
-        header {
-            background: #111827;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 21px;
-            color: #d1d5db;
-            margin-bottom: 25px;
-        }
-
-        .buttons a {
-            display: inline-block;
-            padding: 12px 22px;
-            margin: 5px;
-            background: white;
-            color: #111827;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        section {
-            max-width: 1000px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        h2 {
-            font-size: 30px;
-            margin-bottom: 25px;
-        }
-
-        .about {
-            background: white;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background: #e5e7eb;
-            padding: 9px 14px;
-            border-radius: 5px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .project {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .project h3 {
-            margin-bottom: 10px;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #f8fafc;
         }
 
         a {
-            color: inherit;
+            text-decoration: none;
         }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #2563eb 100%);
+            color: white;
+            padding: 110px 20px 100px;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+            color: #dbeafe;
+            font-size: 13px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero h2 {
+            font-size: clamp(21px, 3vw, 30px);
+            font-weight: 500;
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 760px;
+            color: #dbeafe;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 85px 0;
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            display: block;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            max-width: 720px;
+            color: #64748b;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #475569;
+        }
+
+        .about-card {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 20px;
+            font-size: 21px;
+        }
+
+        .about-card-item {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .about-card-item:last-child {
+            border-bottom: none;
+        }
+
+        .about-card-item strong {
+            display: block;
+            color: #93c5fd;
+            font-size: 13px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+        }
+
+        .skill-card h3 {
+            color: #0f172a;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           INFRASTRUCTURE LAB
+        ========================= */
+
+        .lab-box {
+            background: #0f172a;
+            color: white;
+            border-radius: 14px;
+            padding: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-box h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .lab-box .lab-subtitle {
+            color: #93c5fd;
+            margin-bottom: 25px;
+        }
+
+        .lab-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 35px;
+            list-style: none;
+        }
+
+        .lab-list li {
+            color: #cbd5e1;
+        }
+
+        .lab-list li::before {
+            content: "✓";
+            color: #60a5fa;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* =========================
+           FEATURED AI PROJECT
+        ========================= */
+
+        .featured-project {
+            background: linear-gradient(135deg, #0f172a, #172554);
+            color: white;
+            border-radius: 15px;
+            padding: 45px;
+            margin-bottom: 30px;
+        }
+
+        .project-label {
+            color: #93c5fd;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .featured-project h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .featured-project > p {
+            color: #cbd5e1;
+            max-width: 800px;
+            margin-bottom: 25px;
+        }
+
+        .ai-workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .workflow-step {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+
+        .ai-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .ai-feature {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #dbeafe;
+        }
+
+        /* =========================
+           PROJECT CARDS
+        ========================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+        }
+
+        .project-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .project-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #dbeafe;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #2563eb;
+            border: 4px solid #dbeafe;
+        }
+
+        .timeline-item h3 {
+            color: #0f172a;
+            font-size: 21px;
+        }
+
+        .timeline-role {
+            color: #2563eb;
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .timeline-date {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+            color: #475569;
+        }
+
+        .timeline-item li {
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .education-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .education-card h3 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            background: #0f172a !important;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section .section-title h2 {
+            color: white;
+        }
+
+        .contact-section .section-title p {
+            color: #94a3b8;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 12px 20px;
+            border-radius: 7px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #1e293b;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .about-grid,
+            .skill-grid,
+            .project-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-list {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-workflow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .featured-project,
+            .lab-box {
+                padding: 30px 22px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .ai-workflow {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <h1>Gajeshwaran</h1>
 
-    <p>
-        Technical Support | Service Desk | IT Support
-    </p>
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-    <p>
-        Customer-focused technical support professional with a
-        Master of Software Engineering and practical experience
-        across IT support, troubleshooting, testing and customer service.
-    </p>
+<nav>
 
-    <div class="buttons">
-        <a href="#projects">View Projects</a>
-        <a href="#contact">Contact Me</a>
+    <div class="nav-container">
+
+        <div class="logo">
+            GD
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#experience">Experience</a></li>
+
+            <li><a href="#education">Education</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
     </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            Auckland, New Zealand
+        </div>
+
+        <h1>
+            Gajeshwaran<br>
+            Devakumar
+        </h1>
+
+        <h2>
+            Service Desk | IT Support | Technical Support
+        </h2>
+
+        <p class="hero-description">
+
+            Customer-focused technical support professional with
+            3+ years of IT support experience, practical systems
+            administration knowledge, software testing experience,
+            and a Master of Software Engineering.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                Explore My Projects
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
 </header>
 
 
-<section class="about">
+<!-- =========================
+     ABOUT
+========================= -->
 
-    <h2>About Me</h2>
+<section id="about">
 
-    <p>
-        I am a Technical Support professional with a Master of Software
-        Engineering and a strong interest in Service Desk, IT Support,
-        Application Support and Software Testing.
-    </p>
+    <div class="container">
 
-    <p>
-        I enjoy troubleshooting technical issues, helping users,
-        documenting solutions and learning new technologies. I have
-        experience working in customer-facing environments and a
-        technical foundation across Windows, Microsoft technologies,
-        SQL, networking, ServiceNow and manual testing.
-    </p>
+        <div class="section-title">
 
-</section>
+            <span>About Me</span>
+
+            <h2>
+                Technical support with a customer-first mindset.
+            </h2>
+
+        </div>
 
 
-<section>
+        <div class="about-grid">
 
-    <h2>Technical Skills</h2>
+            <div class="about-text">
 
-    <div class="skills">
+                <p>
+                    I am a Service Desk and Technical Support professional
+                    with 3+ years of hands-on IT support experience and
+                    practical experience working in customer-facing
+                    operational environments.
+                </p>
 
-        <span class="skill">ServiceNow</span>
-        <span class="skill">Incident Management</span>
-        <span class="skill">Service Requests</span>
-        <span class="skill">Windows 10/11</span>
-        <span class="skill">Microsoft 365</span>
-        <span class="skill">Active Directory</span>
-        <span class="skill">Microsoft Entra ID</span>
-        <span class="skill">Group Policy</span>
-        <span class="skill">DNS</span>
-        <span class="skill">DHCP</span>
-        <span class="skill">TCP/IP</span>
-        <span class="skill">SQL</span>
-        <span class="skill">Manual Testing</span>
-        <span class="skill">Functional Testing</span>
-        <span class="skill">API Testing</span>
-        <span class="skill">Integration Testing</span>
-        <span class="skill">Troubleshooting</span>
-        <span class="skill">Technical Documentation</span>
+                <p>
+                    I enjoy troubleshooting software, system and
+                    connectivity issues, helping users resolve technical
+                    problems, documenting solutions and working with
+                    different teams to achieve effective outcomes.
+                </p>
+
+                <p>
+                    I hold a Master of Software Engineering and have
+                    practical knowledge across Windows, Microsoft 365,
+                    Active Directory, networking, ServiceNow, SQL,
+                    manual testing and software quality assurance.
+                </p>
+
+                <p>
+                    I am organised, detail-focused, calm under pressure
+                    and committed to learning new technologies and
+                    continuously developing my IT support capabilities.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Professional Profile</h3>
+
+                <div class="about-card-item">
+                    <strong>Location</strong>
+                    Auckland, New Zealand
+                </div>
+
+                <div class="about-card-item">
+                    <strong>Primary Target Roles</strong>
+                    Service Desk Analyst, IT Support, Technical Support
+                </div>
+
+                <div class="about-card-item">
+                    <strong>Experience</strong>
+                    3+ years IT support experience
+                </div>
+
+                <div class="about-card-item">
+                    <strong>Education</strong>
+                    Master of Software Engineering
+                </div>
+
+                <div class="about-card-item">
+                    <strong>Work Style</strong>
+                    Customer-focused, organised and solution-oriented
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Technical Skills</span>
+
+            <h2>
+                Tools, technologies and support capabilities
+            </h2>
+
+        </div>
+
+
+        <div class="skill-grid">
+
+
+            <div class="skill-card">
+
+                <h3>
+                    End-User Computing & Operating Systems
+                </h3>
+
+                <p>
+                    Windows 11 • Windows 10 • Windows Server •
+                    Device Troubleshooting • Configuration •
+                    Peripherals • Hardware Support • Device Management
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Microsoft 365 & Cloud Services
+                </h3>
+
+                <p>
+                    Microsoft 365 • Outlook • OneDrive • Teams •
+                    Exchange • User Access Management • Email Support
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Office IT Infrastructure
+                </h3>
+
+                <p>
+                    Network Connectivity • Printing Support •
+                    VoIP Systems • Workplace Technology •
+                    Conference Room Support • AV Troubleshooting
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Service Management & IT Operations
+                </h3>
+
+                <p>
+                    ServiceNow • Ticketing Systems • Incident Management •
+                    Service Requests • SLA Management • Ticket Documentation •
+                    Knowledge Management
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Identity & Access Management
+                </h3>
+
+                <p>
+                    Password Resets • MFA Management • Active Directory •
+                    User Account Management • Access Control •
+                    Security Escalation
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Software Testing & Quality
+                </h3>
+
+                <p>
+                    Manual Testing • Functional Testing • Regression Testing •
+                    User Acceptance Testing • API Testing • SQL Validation •
+                    Defect Management • Test Documentation
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Networking & Infrastructure
+                </h3>
+
+                <p>
+                    DNS • DHCP • TCP/IP • Network Connectivity •
+                    Authentication Troubleshooting • Windows Server •
+                    Active Directory • Group Policy
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Professional Strengths
+                </h3>
+
+                <p>
+                    Customer-Focused • Calm Under Pressure •
+                    Professional Communication • Problem-Solving •
+                    Team Collaboration • Detail-Focused • Reliable •
+                    Process-Oriented
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFRASTRUCTURE LAB
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>Hands-On Infrastructure</span>
+
+            <h2>
+                Enterprise Active Directory & Systems Administration Lab
+            </h2>
+
+        </div>
+
+
+        <div class="lab-box">
+
+            <h3>
+                Windows Server & Active Directory Home Lab
+            </h3>
+
+            <p class="lab-subtitle">
+                Personal Project | 2024 – 2025
+            </p>
+
+            <ul class="lab-list">
+
+                <li>
+                    Windows Server 2019 Domain Controller
+                </li>
+
+                <li>
+                    Active Directory Domain Services (AD DS)
+                </li>
+
+                <li>
+                    Enterprise Organizational Unit structure
+                </li>
+
+                <li>
+                    User accounts and access permissions
+                </li>
+
+                <li>
+                    Group Policy Objects (GPO)
+                </li>
+
+                <li>
+                    DNS server configuration and troubleshooting
+                </li>
+
+                <li>
+                    DHCP configuration and connectivity troubleshooting
+                </li>
+
+                <li>
+                    Authentication and network troubleshooting
+                </li>
+
+                <li>
+                    Centralised systems management
+                </li>
+
+                <li>
+                    Technical documentation and knowledge sharing
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
 
 <section id="projects">
 
-    <h2>Featured Projects</h2>
+    <div class="container">
 
-    <div class="projects">
+        <div class="section-title">
 
-        <div class="project">
+            <span>Featured Projects</span>
 
-            <h3>🤖 AI IT Service Desk Agent</h3>
-
-            <p>
-                AI-powered Service Desk assistant designed to help
-                classify support tickets, identify priority,
-                recommend troubleshooting steps and create
-                structured ticket notes.
-            </p>
+            <h2>
+                Practical projects and technical learning
+            </h2>
 
             <p>
-                <strong>Focus:</strong>
-                Incident Management, Ticket Classification,
-                Priority Assessment and Troubleshooting.
+                Projects demonstrating my approach to IT support,
+                infrastructure, automation, testing and problem solving.
             </p>
 
         </div>
 
 
-        <div class="project">
+        <!-- FEATURED AI PROJECT -->
 
-            <h3>🖥️ Windows Server & Active Directory Lab</h3>
+        <div class="featured-project">
+
+            <div class="project-label">
+                Featured Project
+            </div>
+
+            <h3>
+                🤖 Claude AI Service Desk Agent
+            </h3>
 
             <p>
-                Practical IT infrastructure lab covering Windows
-                Server, Active Directory users and groups,
-                organisational units, Group Policy, DNS and DHCP.
+
+                An AI-powered Service Desk assistant built using Claude
+                to support common IT service desk workflows. The agent
+                analyses user-reported issues, identifies the appropriate
+                ticket category and type, assesses impact and urgency,
+                recommends a priority, and provides structured
+                troubleshooting guidance.
+
             </p>
 
-            <p>
-                <strong>Focus:</strong>
-                User Administration, Authentication,
-                Connectivity and Troubleshooting.
-            </p>
+
+            <div class="ai-workflow">
+
+                <div class="workflow-step">
+                    01<br>
+                    User Issue
+                </div>
+
+                <div class="workflow-step">
+                    02<br>
+                    Classification
+                </div>
+
+                <div class="workflow-step">
+                    03<br>
+                    Impact & Urgency
+                </div>
+
+                <div class="workflow-step">
+                    04<br>
+                    Priority
+                </div>
+
+                <div class="workflow-step">
+                    05<br>
+                    Troubleshooting
+                </div>
+
+                <div class="workflow-step">
+                    06<br>
+                    Resolution
+                </div>
+
+                <div class="workflow-step">
+                    07<br>
+                    Escalation
+                </div>
+
+                <div class="workflow-step">
+                    08<br>
+                    Ticket Notes
+                </div>
+
+            </div>
+
+
+            <div class="ai-features">
+
+                <span class="ai-feature">
+                    Ticket Classification
+                </span>
+
+                <span class="ai-feature">
+                    Incident vs Service Request
+                </span>
+
+                <span class="ai-feature">
+                    Impact Assessment
+                </span>
+
+                <span class="ai-feature">
+                    Urgency Assessment
+                </span>
+
+                <span class="ai-feature">
+                    Priority Recommendation
+                </span>
+
+                <span class="ai-feature">
+                    Troubleshooting Guidance
+                </span>
+
+                <span class="ai-feature">
+                    Escalation Recommendations
+                </span>
+
+                <span class="ai-feature">
+                    Ticket Documentation
+                </span>
+
+            </div>
 
         </div>
 
 
-        <div class="project">
+        <!-- OTHER PROJECTS -->
 
-            <h3>🎫 IT Service Desk Ticket Simulation</h3>
-
-            <p>
-                Simulated real-world Service Desk tickets covering
-                incident classification, impact, urgency, priority,
-                troubleshooting, escalation and resolution notes.
-            </p>
-
-        </div>
+        <div class="project-grid">
 
 
-        <div class="project">
+            <div class="project-card">
 
-            <h3>🧪 Software Testing & API Testing</h3>
+                <div class="project-icon">
+                    🖥️
+                </div>
 
-            <p>
-                Testing project covering functional testing,
-                integration testing, API testing, SQL validation,
-                defect management and test documentation.
-            </p>
+                <h3>
+                    Windows Server & Active Directory Lab
+                </h3>
 
-        </div>
+                <p>
+                    Designed and deployed a Windows Server 2019
+                    environment with Active Directory, OUs, user
+                    administration, Group Policy, DNS and DHCP.
+                </p>
+
+                <div class="project-tech">
+                    Windows Server • AD DS • GPO • DNS • DHCP
+                </div>
+
+            </div>
 
 
-        <div class="project">
+            <div class="project-card">
 
-            <h3>☁️ Smart Heart</h3>
+                <div class="project-icon">
+                    🎫
+                </div>
 
-            <p>
-                Predictive analytics project using patient and
-                wearable-device data with Azure Data Factory,
-                Snowflake, Power BI, Python and machine learning.
-            </p>
+                <h3>
+                    IT Service Desk Ticket Simulation
+                </h3>
+
+                <p>
+                    Simulated real-world Service Desk tickets covering
+                    incident classification, service requests, impact,
+                    urgency, priority, troubleshooting and escalation.
+                </p>
+
+                <div class="project-tech">
+                    Incident Management • SLA • Ticket Documentation
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    🧪
+                </div>
+
+                <h3>
+                    Software Testing & API Testing
+                </h3>
+
+                <p>
+                    Practical testing work covering functional,
+                    regression, integration and user acceptance testing,
+                    together with API testing and SQL validation.
+                </p>
+
+                <div class="project-tech">
+                    Manual Testing • API Testing • SQL • Defect Management
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    Smart Heart
+                </h3>
+
+                <p>
+                    Master of Software Engineering final project using
+                    patient and wearable-device data for predictive
+                    analytics and explainable machine learning.
+                </p>
+
+                <div class="project-tech">
+                    Python • Snowflake • Azure Data Factory • Power BI
+                </div>
+
+            </div>
 
         </div>
 
@@ -274,85 +1268,418 @@
 </section>
 
 
-<section>
+<!-- =========================
+     EXPERIENCE
+========================= -->
 
-    <h2>Professional Experience</h2>
+<section id="experience">
 
-    <div class="experience-item">
-        <h3>SkyCity Entertainment Group</h3>
-        <p>Gaming Machine Operations | Sep 2025 – Present</p>
-    </div>
+    <div class="container">
 
-    <div class="experience-item">
-        <h3>BP Connect Millwater</h3>
-        <p>Customer Service Representative | Sep 2024 – Aug 2025</p>
-    </div>
+        <div class="section-title">
 
-     <div class="experience-item">
-        <h3>Byju's / Think & Learn</h3>
-        <p>Business Development Associate</p>
-    </div>
+            <span>Professional Experience</span>
 
-     <div class="experience-item">
-        <h3>TLX Tech Solutions</h3>
-        <p>Software Testing / QA</p>
+            <h2>
+                Experience
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- SKY CITY -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    SkyCity Entertainment Group
+                </h3>
+
+                <div class="timeline-role">
+                    Gaming Operations & Customer Support
+                </div>
+
+                <div class="timeline-date">
+                    September 2025 – Present | Auckland, New Zealand
+                </div>
+
+                <ul>
+
+                    <li>
+                        Resolve patron-facing technical issues and
+                        complaints in real-time, including cashless
+                        transaction errors, meter delta system problems
+                        and gaming machine malfunctions.
+                    </li>
+
+                    <li>
+                        Diagnose cashless payment system failures,
+                        transaction pending issues and electronic
+                        payment errors using systematic troubleshooting.
+                    </li>
+
+                    <li>
+                        Troubleshoot gaming machine technical and
+                        hardware issues, investigating software errors,
+                        connectivity issues and system configuration
+                        problems.
+                    </li>
+
+                    <li>
+                        Manage SDS card system access and administration
+                        for gaming and restaurant operations, controlling
+                        user access and maintaining accurate access records.
+                    </li>
+
+                    <li>
+                        Provide technical explanations to patrons
+                        regarding gaming machine pay tables, system
+                        features, transaction processing and troubleshooting.
+                    </li>
+
+                    <li>
+                        Analyse meter delta errors and transaction
+                        reconciliation problems and work with multiple
+                        teams to investigate, escalate and resolve issues.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- BP -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    BP Connect
+                </h3>
+
+                <div class="timeline-role">
+                    Customer Service & Technical Support — Part-Time
+                </div>
+
+                <div class="timeline-date">
+                    September 2024 – September 2025 | Auckland, New Zealand
+                </div>
+
+                <ul>
+
+                    <li>
+                        Provided remote technical support to customers,
+                        troubleshooting software, hardware and system issues.
+                    </li>
+
+                    <li>
+                        Logged and prioritised customer support requests
+                        in ticketing systems while managing multiple priorities.
+                    </li>
+
+                    <li>
+                        Communicated professionally with diverse customers,
+                        explaining technical concepts clearly and guiding
+                        troubleshooting steps.
+                    </li>
+
+                    <li>
+                        Maintained accurate documentation of support
+                        interactions and resolutions.
+                    </li>
+
+                    <li>
+                        Escalated complex issues appropriately while
+                        maintaining SLA awareness and customer satisfaction.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- BYJUS -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    BYJU'S — Think & Learn
+                </h3>
+
+                <div class="timeline-role">
+                    Sr Business Development & Customer Support Analyst
+                </div>
+
+                <div class="timeline-date">
+                    May 2021 – September 2023 | India
+                </div>
+
+                <ul>
+
+                    <li>
+                        Provided remote Level 1–2 support to external
+                        customers through multiple channels.
+                    </li>
+
+                    <li>
+                        Managed customer support tickets, logging issues
+                        accurately and tracking them through resolution.
+                    </li>
+
+                    <li>
+                        Diagnosed and resolved technical issues across
+                        software, hardware and system configurations.
+                    </li>
+
+                    <li>
+                        Maintained comprehensive ticket documentation
+                        and contributed to knowledge articles.
+                    </li>
+
+                    <li>
+                        Communicated technical concepts clearly to
+                        customers from diverse backgrounds.
+                    </li>
+
+                    <li>
+                        Identified and escalated recurring issues for
+                        problem management while maintaining SLA awareness.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- TLX -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    TLX Tech Solutions
+                </h3>
+
+                <div class="timeline-role">
+                    Test Analyst & Technical Problem-Solver
+                </div>
+
+                <div class="timeline-date">
+                    August 2019 – July 2020 | Coimbatore, India
+                </div>
+
+                <ul>
+
+                    <li>
+                        Performed manual testing of software applications,
+                        validating functionality against business and
+                        technical requirements.
+                    </li>
+
+                    <li>
+                        Executed functional, regression and user acceptance
+                        testing to identify defects and ensure application quality.
+                    </li>
+
+                    <li>
+                        Analysed reported issues, reproduced defects and
+                        investigated potential causes.
+                    </li>
+
+                    <li>
+                        Created and maintained test cases, test scenarios,
+                        test data and defect documentation.
+                    </li>
+
+                    <li>
+                        Collaborated with developers and team members to
+                        investigate, communicate and resolve defects.
+                    </li>
+
+                    <li>
+                        Performed API testing and SQL validation to verify
+                        application behaviour and underlying data.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
 
 
-<section>
+<!-- =========================
+     EDUCATION
+========================= -->
 
-    <h2>Education</h2>
+<section id="education">
 
-    <div class="experience-item">
+    <div class="container">
 
-        <h3>Master of Software Engineering</h3>
+        <div class="section-title">
 
-        <p>
-            Focus areas include software engineering, data,
-            cloud technologies, testing and technical projects.
-        </p>
+            <span>Education</span>
+
+            <h2>
+                Academic Background
+            </h2>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <div class="education-card">
+
+                <h3>
+                    Master of Software Engineering
+                </h3>
+
+                <p>
+                    Yoobee College of Creative Innovation
+                </p>
+
+                <p>
+                    Auckland, New Zealand | Completed June 2025
+                </p>
+
+                <br>
+
+                <p>
+                    Systems thinking, problem-solving and technical
+                    depth across software engineering, data,
+                    cloud technologies, testing and technical projects.
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Bachelor of Engineering (BE)
+                </h3>
+
+                <p>
+                    Electronics & Communication Engineering
+                </p>
+
+                <p>
+                    SNS College of Engineering
+                </p>
+
+                <p>
+                    Coimbatore, India | April 2018
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<section id="contact">
+<!-- =========================
+     CONTACT
+========================= -->
 
-    <h2>Contact</h2>
+<section id="contact" class="contact-section">
 
-    <p>
-        I am interested in opportunities in IT Support,
-        Service Desk, Technical Support, Application Support
-        and Manual Software Testing.
-    </p>
+    <div class="container">
 
-    <br>
+        <div class="section-title">
 
-    <p>
-        📧 Email: gajeshdeva@gmail.com
-    </p>
+            <span>Get In Touch</span>
 
-    <p>
-        🔗 LinkedIn: https://www.linkedin.com/in/gajeshwaran 
-    </p>
+            <h2>
+                Let's connect
+            </h2>
 
-    <p>
-        💻 GitHub: https://gajeshwaran123.github.io
-    </p>
+            <p>
+
+                I am interested in opportunities across Service Desk,
+                IT Support, Technical Support, Application Support
+                and Software Testing.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-details">
+
+            <a
+                href="mailto:gajeshdeva@gmail.com"
+                class="contact-link"
+            >
+                ✉ Email
+            </a>
+
+
+            <a
+                href="tel:+64226188749"
+                class="contact-link"
+            >
+                ☎ +64 22 618 8749
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/gajeshwaran"
+                target="_blank"
+                class="contact-link"
+            >
+                LinkedIn
+            </a>
+
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="contact-link"
+            >
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <p>
-        © 2026 Gajeshwaran | IT Support Portfolio
+        © 2026 Gajeshwaran Devakumar · Auckland, New Zealand
+    </p>
+
+    <p>
+        Service Desk • IT Support • Technical Support • Software Testing
     </p>
 
 </footer>
+
 
 </body>
 </html>
