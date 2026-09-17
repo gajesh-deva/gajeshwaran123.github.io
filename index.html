@@ -1,1812 +1,1230 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gajeshwaran | IT Support & Service Desk</title>
-    <meta name="description" content="Gajeshwaran - IT Support, Service Desk, Technical Support and QA portfolio.">
-    <meta name="author" content="Gajeshwaran">
-
-    <style>
-        /* ================================
-           GLOBAL
-        ================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #070b14;
-            --bg-soft: #0d1320;
-            --card: rgba(18, 26, 42, 0.82);
-            --card-hover: rgba(24, 35, 56, 0.95);
-            --border: rgba(255, 255, 255, 0.09);
-            --text: #f5f7fb;
-            --muted: #a7b1c4;
-            --accent: #6ea8fe;
-            --accent-2: #8b7cff;
-            --success: #54d88a;
-            --warning: #ffc857;
-            --danger: #ff6b7a;
-            --max-width: 1180px;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(circle at 10% 10%, rgba(110, 168, 254, 0.12), transparent 30%),
-                radial-gradient(circle at 90% 20%, rgba(139, 124, 255, 0.10), transparent 28%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-            background-size: 45px 45px;
-            mask-image: linear-gradient(to bottom, black, transparent 85%);
-            z-index: -1;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-        }
-
-        .container {
-            width: min(92%, var(--max-width));
-            margin: auto;
-        }
-
-        .section {
-            padding: 95px 0;
-        }
-
-        .section-title {
-            margin-bottom: 45px;
-        }
-
-        .section-title .eyebrow {
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            line-height: 1.1;
-        }
-
-        .section-title p {
-            color: var(--muted);
-            max-width: 700px;
-            margin-top: 15px;
-        }
-
-        /* ================================
-           NAVIGATION
-        ================================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(18px);
-            background: rgba(7, 11, 20, 0.78);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-inner {
-            min-height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: white;
-            box-shadow: 0 8px 30px rgba(110, 168, 254, 0.2);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.9rem;
-            transition: 0.25s ease;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* ================================
-           HERO
-        ================================= */
-
-        .hero {
-            min-height: calc(100vh - 72px);
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.035);
-            padding: 8px 13px;
-            border-radius: 999px;
-            color: var(--muted);
-            font-size: 0.82rem;
-            margin-bottom: 22px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--success);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--success);
-        }
-
-        .hero h1 {
-            font-size: clamp(3.2rem, 8vw, 6.8rem);
-            line-height: 0.95;
-            letter-spacing: -4px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #fff, var(--accent), #a69bff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-role {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #dce4f2;
-            margin-bottom: 20px;
-        }
-
-        .hero-description {
-            color: var(--muted);
-            max-width: 680px;
-            font-size: 1.05rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .btn {
-            padding: 13px 19px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            transition: 0.25s ease;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent-2));
-            color: white;
-            border: none;
-            box-shadow: 0 10px 30px rgba(110, 168, 254, 0.18);
-        }
-
-        .btn-secondary {
-            color: #dce4f2;
-            background: rgba(255,255,255,0.035);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .hero-terminal {
-            border: 1px solid var(--border);
-            background: rgba(10, 16, 29, 0.9);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-            animation: float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .terminal-top {
-            padding: 13px 16px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        .terminal-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #6c7689;
-        }
-
-        .terminal-body {
-            padding: 25px;
-            font-family: Consolas, monospace;
-            font-size: 0.86rem;
-            color: #b8c6dc;
-        }
-
-        .terminal-line {
-            margin-bottom: 12px;
-        }
-
-        .terminal-green {
-            color: var(--success);
-        }
-
-        .terminal-blue {
-            color: var(--accent);
-        }
-
-        .terminal-purple {
-            color: #aa9cff;
-        }
-
-        /* ================================
-           QUICK STATS
-        ================================= */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .stat-card {
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 16px;
-            padding: 25px;
-            transition: 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            background: var(--card-hover);
-            border-color: rgba(110,168,254,0.25);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        /* ================================
-           ABOUT
-        ================================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .glass-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 30px;
-        }
-
-        .glass-card p {
-            color: var(--muted);
-        }
-
-        .highlight-list {
-            display: grid;
-            gap: 13px;
-            margin-top: 22px;
-        }
-
-        .highlight {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            color: #dce4f2;
-        }
-
-        .highlight span {
-            color: var(--success);
-        }
-
-        /* ================================
-           SKILLS
-        ================================= */
-
-        .skill-tabs {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-        .skill-tab {
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.035);
-            color: var(--muted);
-            padding: 10px 15px;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
-
-        .skill-tab.active,
-        .skill-tab:hover {
-            background: rgba(110,168,254,0.12);
-            border-color: rgba(110,168,254,0.35);
-            color: white;
-        }
-
-        .skill-panel {
-            display: none;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .skill-panel.active {
-            display: grid;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .skill-item {
-            border: 1px solid var(--border);
-            background: var(--card);
-            padding: 18px;
-            border-radius: 14px;
-            color: #dce4f2;
-            transition: 0.25s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-4px);
-            border-color: rgba(110,168,254,0.3);
-        }
-
-        .skill-item strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .skill-item small {
-            color: var(--muted);
-        }
-
-        /* ================================
-           FEATURED AI PROJECT
-        ================================= */
-
-        .featured-project {
-            border: 1px solid rgba(110,168,254,0.2);
-            border-radius: 24px;
-            background:
-                radial-gradient(circle at 90% 10%, rgba(139,124,255,0.14), transparent 30%),
-                linear-gradient(145deg, rgba(17,27,45,0.96), rgba(9,15,27,0.96));
-            overflow: hidden;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.25);
-        }
-
-        .project-main {
-            padding: 38px;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .project-badge {
-            display: inline-flex;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(110,168,254,0.12);
-            border: 1px solid rgba(110,168,254,0.25);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .project-header h3 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin-bottom: 12px;
-        }
-
-        .project-description {
-            color: var(--muted);
-            max-width: 850px;
-        }
-
-        .project-status {
-            white-space: nowrap;
-            color: var(--success);
-            border: 1px solid rgba(84,216,138,0.2);
-            background: rgba(84,216,138,0.07);
-            border-radius: 999px;
-            padding: 7px 11px;
-            font-size: 0.75rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .tech-tag {
-            font-size: 0.76rem;
-            padding: 7px 10px;
-            border-radius: 8px;
-            color: #cbd6e7;
-            background: rgba(255,255,255,0.045);
-            border: 1px solid var(--border);
-        }
-
-        .explore-btn {
-            margin-top: 25px;
-            border: 1px solid rgba(110,168,254,0.3);
-            background: rgba(110,168,254,0.08);
-            color: white;
-            padding: 12px 17px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
-
-        .explore-btn:hover {
-            background: rgba(110,168,254,0.16);
-            transform: translateY(-2px);
-        }
-
-        .project-details {
-            display: none;
-            border-top: 1px solid var(--border);
-            padding: 30px 38px 38px;
-        }
-
-        .project-details.open {
-            display: block;
-            animation: fadeIn 0.35s ease;
-        }
-
-        .detail-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .detail-card {
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.025);
-            border-radius: 15px;
-            padding: 22px;
-        }
-
-        .detail-card h4 {
-            margin-bottom: 10px;
-        }
-
-        .detail-card p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .detail-card ul {
-            padding-left: 18px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .detail-card li {
-            margin-bottom: 6px;
-        }
-
-        /* ================================
-           AI WORKFLOW
-        ================================= */
-
-        .workflow {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 18px;
-        }
-
-        .workflow-step {
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.035);
-            border-radius: 10px;
-            padding: 10px 13px;
-            font-size: 0.78rem;
-            color: #dce4f2;
-        }
-
-        .workflow-arrow {
-            color: var(--accent);
-        }
-
-        /* ================================
-           TESTING
-        ================================= */
-
-        .test-summary {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            padding: 25px;
-            border-radius: 17px;
-            border: 1px solid rgba(84,216,138,0.2);
-            background: rgba(84,216,138,0.045);
-            margin-bottom: 22px;
-        }
-
-        .test-number {
-            font-size: 2.7rem;
-            font-weight: 800;
-            color: var(--success);
-        }
-
-        .test-summary p {
-            color: var(--muted);
-        }
-
-        .test-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        .test-card {
-            padding: 14px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.025);
-            border-radius: 11px;
-            cursor: pointer;
-            transition: 0.25s ease;
-            font-size: 0.84rem;
-        }
-
-        .test-card:hover {
-            border-color: rgba(84,216,138,0.3);
-            transform: translateY(-3px);
-        }
-
-        .test-card::before {
-            content: "✓";
-            color: var(--success);
-            margin-right: 7px;
-        }
-
-        .test-output {
-            display: none;
-            margin-top: 15px;
-            padding: 17px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            color: var(--muted);
-            border: 1px solid var(--border);
-        }
-
-        .test-output.active {
-            display: block;
-        }
-
-        /* ================================
-           HOME LAB
-        ================================= */
-
-        .lab-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 25px;
-        }
-
-        .architecture {
-            border: 1px solid var(--border);
-            background: rgba(10,16,29,0.9);
-            border-radius: 18px;
-            padding: 30px;
-        }
-
-        .arch-node {
-            border: 1px solid rgba(110,168,254,0.22);
-            background: rgba(110,168,254,0.06);
-            padding: 13px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
-
-        .arch-node:hover {
-            transform: scale(1.02);
-            background: rgba(110,168,254,0.12);
-        }
-
-        .arch-line {
-            width: 2px;
-            height: 22px;
-            background: rgba(110,168,254,0.3);
-            margin: auto;
-        }
-
-        .lab-info {
-            display: grid;
-            gap: 13px;
-        }
-
-        .lab-item {
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 14px;
-            padding: 20px;
-        }
-
-        .lab-item h4 {
-            margin-bottom: 6px;
-        }
-
-        .lab-item p {
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
-
-        /* ================================
-           EXPERIENCE
-        ================================= */
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 14px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(110,168,254,0.2);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 28px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 7px;
-            top: 8px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 18px rgba(110,168,254,0.55);
-        }
-
-        .timeline-card {
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 17px;
-            padding: 25px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .timeline-card:hover {
-            background: var(--card-hover);
-            transform: translateX(5px);
-        }
-
-        .timeline-date {
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .timeline-card h3 {
-            margin-bottom: 5px;
-        }
-
-        .timeline-company {
-            color: #dce4f2;
-            margin-bottom: 12px;
-        }
-
-        .timeline-details {
-            display: none;
-            color: var(--muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 15px;
-            padding-top: 15px;
-        }
-
-        .timeline-card.open .timeline-details {
-            display: block;
-            animation: fadeIn 0.25s ease;
-        }
-
-        /* ================================
-           EDUCATION
-        ================================= */
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        .education-card {
-            border: 1px solid var(--border);
-            background: var(--card);
-            padding: 25px;
-            border-radius: 17px;
-        }
-
-        .education-card span {
-            color: var(--accent);
-            font-size: 0.78rem;
-        }
-
-        .education-card h3 {
-            margin: 8px 0;
-        }
-
-        .education-card p {
-            color: var(--muted);
-        }
-
-        /* ================================
-           CONTACT
-        ================================= */
-
-        .contact-box {
-            text-align: center;
-            border: 1px solid var(--border);
-            background:
-                radial-gradient(circle at center, rgba(110,168,254,0.08), transparent 60%),
-                var(--card);
-            border-radius: 24px;
-            padding: 65px 30px;
-        }
-
-        .contact-box h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 12px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            max-width: 650px;
-            margin: auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 28px;
-        }
-
-        /* ================================
-           FOOTER
-        ================================= */
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 0;
-            color: var(--muted);
-            text-align: center;
-            font-size: 0.82rem;
-        }
-
-        /* ================================
-           SCROLL REVEAL
-        ================================= */
-
-        .reveal {
+```
+<title>Gajeshwaran | IT Support & Service Desk</title>
+<meta name="description" content="Gajeshwaran - IT Support, Service Desk, Technical Support and QA portfolio.">
+<meta name="author" content="Gajeshwaran">
+
+<style>
+    /* ================================
+       GLOBAL
+    ================================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --bg: #070b14;
+        --bg-soft: #0d1320;
+        --card: rgba(18, 26, 42, 0.82);
+        --card-hover: rgba(24, 35, 56, 0.95);
+        --border: rgba(255, 255, 255, 0.09);
+        --text: #f5f7fb;
+        --muted: #a7b1c4;
+        --accent: #6ea8fe;
+        --accent-2: #8b7cff;
+        --success: #54d88a;
+        --warning: #ffc857;
+        --danger: #ff6b7a;
+        --max-width: 1180px;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+            radial-gradient(circle at 10% 10%, rgba(110, 168, 254, 0.12), transparent 30%),
+            radial-gradient(circle at 90% 20%, rgba(139, 124, 255, 0.10), transparent 28%),
+            var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        background-size: 45px 45px;
+        mask-image: linear-gradient(to bottom, black, transparent 85%);
+        z-index: -1;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        font: inherit;
+    }
+
+    .container {
+        width: min(92%, var(--max-width));
+        margin: auto;
+    }
+
+    .section {
+        padding: 95px 0;
+    }
+
+    .section-title {
+        margin-bottom: 45px;
+    }
+
+    .section-title .eyebrow {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .section-title p {
+        color: var(--muted);
+        max-width: 700px;
+        margin-top: 15px;
+    }
+
+    /* ================================
+       NAVIGATION
+    ================================= */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(18px);
+        background: rgba(7, 11, 20, 0.78);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        box-shadow: 0 8px 30px rgba(110, 168, 254, 0.2);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .nav-links a {
+        color: var(--muted);
+        font-size: 0.9rem;
+        transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+        color: white;
+    }
+
+    /* ================================
+       HERO
+    ================================= */
+
+    .hero {
+        min-height: calc(100vh - 72px);
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 70px;
+        align-items: center;
+    }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.035);
+        padding: 8px 13px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        margin-bottom: 22px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--success);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--success);
+    }
+
+    .hero h1 {
+        font-size: clamp(3.2rem, 8vw, 6.8rem);
+        line-height: 0.95;
+        letter-spacing: -4px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+        background: linear-gradient(90deg, #fff, var(--accent), #a69bff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role {
+        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        color: #dce4f2;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        color: var(--muted);
+        max-width: 680px;
+        font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .btn {
+        padding: 13px 19px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        transition: 0.25s ease;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        border: none;
+        box-shadow: 0 10px 30px rgba(110, 168, 254, 0.18);
+    }
+
+    .btn-secondary {
+        color: #dce4f2;
+        background: rgba(255,255,255,0.035);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+    }
+
+    .hero-terminal {
+        border: 1px solid var(--border);
+        background: rgba(10, 16, 29, 0.9);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+        animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .terminal-top {
+        padding: 13px 16px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .terminal-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #6c7689;
+    }
+
+    .terminal-body {
+        padding: 25px;
+        font-family: Consolas, monospace;
+        font-size: 0.86rem;
+        color: #b8c6dc;
+    }
+
+    .terminal-line {
+        margin-bottom: 12px;
+    }
+
+    .terminal-green {
+        color: var(--success);
+    }
+
+    .terminal-blue {
+        color: var(--accent);
+    }
+
+    .terminal-purple {
+        color: #aa9cff;
+    }
+
+    /* ================================
+       QUICK STATS
+    ================================= */
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 16px;
+        padding: 25px;
+        transition: 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+        border-color: rgba(110,168,254,0.25);
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+    }
+
+    .stat-label {
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
+
+    /* ================================
+       ABOUT
+    ================================= */
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .glass-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 30px;
+    }
+
+    .glass-card p {
+        color: var(--muted);
+    }
+
+    .highlight-list {
+        display: grid;
+        gap: 13px;
+        margin-top: 22px;
+    }
+
+    .highlight {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        color: #dce4f2;
+    }
+
+    .highlight span {
+        color: var(--success);
+    }
+
+    /* ================================
+       SKILLS
+    ================================= */
+
+    .skill-tabs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
+
+    .skill-tab {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.035);
+        color: var(--muted);
+        padding: 10px 15px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .skill-tab.active,
+    .skill-tab:hover {
+        background: rgba(110,168,254,0.12);
+        border-color: rgba(110,168,254,0.35);
+        color: white;
+    }
+
+    .skill-panel {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .skill-panel.active {
+        display: grid;
+    }
+
+    @keyframes fadeIn {
+        from {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transform: translateY(8px);
         }
-
-        .reveal.visible {
+        to {
             opacity: 1;
             transform: translateY(0);
         }
+    }
 
-        /* ================================
-           BACK TO TOP
-        ================================= */
+    .skill-item {
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 18px;
+        border-radius: 14px;
+        color: #dce4f2;
+        transition: 0.25s ease;
+    }
 
-        #topBtn {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background: rgba(15,23,38,0.9);
-            color: white;
-            cursor: pointer;
+    .skill-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(110,168,254,0.3);
+    }
+
+    .skill-item strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .skill-item small {
+        color: var(--muted);
+    }
+
+    /* ================================
+       FEATURED AI PROJECT
+    ================================= */
+
+    .featured-project {
+        border: 1px solid rgba(110,168,254,0.2);
+        border-radius: 24px;
+        background:
+            radial-gradient(circle at 90% 10%, rgba(139,124,255,0.14), transparent 30%),
+            linear-gradient(145deg, rgba(17,27,45,0.96), rgba(9,15,27,0.96));
+        overflow: hidden;
+        box-shadow: 0 30px 100px rgba(0,0,0,0.25);
+    }
+
+    .project-main {
+        padding: 38px;
+    }
+
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .project-badge {
+        display: inline-flex;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(110,168,254,0.12);
+        border: 1px solid rgba(110,168,254,0.25);
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .project-header h3 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        margin-bottom: 12px;
+    }
+
+    .project-description {
+        color: var(--muted);
+        max-width: 850px;
+    }
+
+    .project-status {
+        white-space: nowrap;
+        color: var(--success);
+        border: 1px solid rgba(84,216,138,0.2);
+        background: rgba(84,216,138,0.07);
+        border-radius: 999px;
+        padding: 7px 11px;
+        font-size: 0.75rem;
+    }
+
+    .tech-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .tech-tag {
+        font-size: 0.76rem;
+        padding: 7px 10px;
+        border-radius: 8px;
+        color: #cbd6e7;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid var(--border);
+    }
+
+    .explore-btn {
+        margin-top: 25px;
+        border: 1px solid rgba(110,168,254,0.3);
+        background: rgba(110,168,254,0.08);
+        color: white;
+        padding: 12px 17px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .explore-btn:hover {
+        background: rgba(110,168,254,0.16);
+        transform: translateY(-2px);
+    }
+
+    .project-details {
+        display: none;
+        border-top: 1px solid var(--border);
+        padding: 30px 38px 38px;
+    }
+
+    .project-details.open {
+        display: block;
+        animation: fadeIn 0.35s ease;
+    }
+
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .detail-card {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.025);
+        border-radius: 15px;
+        padding: 22px;
+    }
+
+    .detail-card h4 {
+        margin-bottom: 10px;
+    }
+
+    .detail-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
+
+    .detail-card ul {
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
+
+    .detail-card li {
+        margin-bottom: 6px;
+    }
+
+    /* ================================
+       AI WORKFLOW
+    ================================= */
+
+    .workflow {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+    }
+
+    .workflow-step {
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.035);
+        border-radius: 10px;
+        padding: 10px 13px;
+        font-size: 0.78rem;
+        color: #dce4f2;
+    }
+
+    .workflow-arrow {
+        color: var(--accent);
+    }
+
+    /* ================================
+       TESTING
+    ================================= */
+
+    .test-summary {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding: 25px;
+        border-radius: 17px;
+        border: 1px solid rgba(84,216,138,0.2);
+        background: rgba(84,216,138,0.045);
+        margin-bottom: 22px;
+    }
+
+    .test-number {
+        font-size: 2.7rem;
+        font-weight: 800;
+        color: var(--success);
+    }
+
+    .test-summary p {
+        color: var(--muted);
+    }
+
+    .test-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    .test-card {
+        padding: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.025);
+        border-radius: 11px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        font-size: 0.84rem;
+    }
+
+    .test-card:hover {
+        border-color: rgba(84,216,138,0.3);
+        transform: translateY(-3px);
+    }
+
+    .test-card::before {
+        content: "✓";
+        color: var(--success);
+        margin-right: 7px;
+    }
+
+    .test-output {
+        display: none;
+        margin-top: 15px;
+        padding: 17px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+        border: 1px solid var(--border);
+    }
+
+    .test-output.active {
+        display: block;
+    }
+
+    /* ================================
+       HOME LAB
+    ================================= */
+
+    .lab-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 25px;
+    }
+
+    .architecture {
+        border: 1px solid var(--border);
+        background: rgba(10,16,29,0.9);
+        border-radius: 18px;
+        padding: 30px;
+    }
+
+    .arch-node {
+        border: 1px solid rgba(110,168,254,0.22);
+        background: rgba(110,168,254,0.06);
+        padding: 13px;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+    .arch-node:hover {
+        transform: scale(1.02);
+        background: rgba(110,168,254,0.12);
+    }
+
+    .arch-line {
+        width: 2px;
+        height: 22px;
+        background: rgba(110,168,254,0.3);
+        margin: auto;
+    }
+
+    .lab-info {
+        display: grid;
+        gap: 13px;
+    }
+
+    .lab-item {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 14px;
+        padding: 20px;
+    }
+
+    .lab-item h4 {
+        margin-bottom: 6px;
+    }
+
+    .lab-item p {
+        color: var(--muted);
+        font-size: 0.88rem;
+    }
+
+    /* ================================
+       EXPERIENCE
+    ================================= */
+
+    .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(110,168,254,0.2);
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 28px;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 7px;
+        top: 8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(110,168,254,0.55);
+    }
+
+    .timeline-card {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 17px;
+        padding: 25px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .timeline-card:hover {
+        background: var(--card-hover);
+        transform: translateX(5px);
+    }
+
+    .timeline-date {
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .timeline-card h3 {
+        margin-bottom: 5px;
+    }
+
+    .timeline-company {
+        color: #dce4f2;
+        margin-bottom: 12px;
+    }
+
+    .timeline-details {
+        display: none;
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--border);
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    .timeline-card.open .timeline-details {
+        display: block;
+        animation: fadeIn 0.25s ease;
+    }
+
+    /* ================================
+       EDUCATION
+    ================================= */
+
+    .education-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .education-card {
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 25px;
+        border-radius: 17px;
+    }
+
+    .education-card span {
+        color: var(--accent);
+        font-size: 0.78rem;
+    }
+
+    .education-card h3 {
+        margin: 8px 0;
+    }
+
+    .education-card p {
+        color: var(--muted);
+    }
+
+    /* ================================
+       CONTACT
+    ================================= */
+
+    .contact-box {
+        text-align: center;
+        border: 1px solid var(--border);
+        background:
+            radial-gradient(circle at center, rgba(110,168,254,0.08), transparent 60%),
+            var(--card);
+        border-radius: 24px;
+        padding: 65px 30px;
+    }
+
+    .contact-box h2 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 12px;
+    }
+
+    .contact-box p {
+        color: var(--muted);
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+    }
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.82rem;
+    }
+
+    /* ================================
+       SCROLL REVEAL
+    ================================= */
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ================================
+       BACK TO TOP
+    ================================= */
+
+    #topBtn {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: rgba(15,23,38,0.9);
+        color: white;
+        cursor: pointer;
+        display: none;
+        z-index: 999;
+    }
+
+    #topBtn.show {
+        display: block;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 900px) {
+
+        .hero-grid,
+        .about-grid,
+        .lab-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .skill-panel {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .detail-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .test-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        .nav-links {
             display: none;
-            z-index: 999;
         }
 
-        #topBtn.show {
-            display: block;
+        .hero {
+            min-height: auto;
+            padding: 80px 0;
         }
 
-        /* ================================
-           MOBILE
-        ================================= */
-
-        @media (max-width: 900px) {
-
-            .hero-grid,
-            .about-grid,
-            .lab-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .skill-panel {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .detail-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .test-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .hero h1 {
+            letter-spacing: -2px;
         }
 
-        @media (max-width: 650px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 80px 0;
-            }
-
-            .hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .stats,
-            .skill-panel,
-            .education-grid,
-            .test-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
-            .project-main,
-            .project-details {
-                padding: 25px;
-            }
-
-            .project-header {
-                flex-direction: column;
-            }
-
-            .test-summary {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .workflow {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .workflow-arrow {
-                text-align: center;
-            }
+        .stats,
+        .skill-panel,
+        .education-grid,
+        .test-grid {
+            grid-template-columns: 1fr;
         }
-    </style>
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .project-main,
+        .project-details {
+            padding: 25px;
+        }
+
+        .project-header {
+            flex-direction: column;
+        }
+
+        .test-summary {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .workflow {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .workflow-arrow {
+            text-align: center;
+        }
+    }
+</style>
+```
+
 </head>
 
 <body>
 
-    <!-- ================================
-         NAVIGATION
-    ================================= -->
+```
+<!-- ================================
+     NAVIGATION
+================================= -->
 
-    <nav>
-        <div class="container nav-inner">
+<nav>
+    <div class="container nav-inner">
 
-            <a href="#home" class="logo">G</a>
+        <a href="#home" class="logo">G</a>
 
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#lab">Lab</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#lab">Lab</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ================================
+     HERO
+================================= -->
+
+<header class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div class="reveal">
+
+            <div class="status">
+                <span class="status-dot"></span>
+                IT Support & Service Desk
+            </div>
+
+            <h1>
+                <span>Gajeshwaran</span>
+            </h1>
+
+            <div class="hero-role">
+                Service Desk • IT Support • Technical Support
+            </div>
+
+            <p class="hero-description">
+                Technical Support professional with a Master of Software Engineering,
+                customer-facing experience, troubleshooting skills, testing knowledge,
+                and a strong interest in modern IT service operations.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Projects →
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
             </div>
 
         </div>
-    </nav>
 
 
-    <!-- ================================
-         HERO
-    ================================= -->
+        <div class="hero-terminal reveal">
 
-    <header class="hero" id="home">
-
-        <div class="container hero-grid">
-
-            <div class="reveal">
-
-                <div class="status">
-                    <span class="status-dot"></span>
-                    IT Support & Service Desk
-                </div>
-
-                <h1>
-                    <span>Gajeshwaran</span>
-                </h1>
-
-                <div class="hero-role">
-                    Service Desk • IT Support • Technical Support
-                </div>
-
-                <p class="hero-description">
-                    Technical Support professional with a Master of Software Engineering,
-                    customer-facing experience, troubleshooting skills, testing knowledge,
-                    and a strong interest in modern IT service operations.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        Explore My Projects →
-                    </a>
-
-                    <a href="#contact" class="btn btn-secondary">
-                        Contact Me
-                    </a>
-                </div>
-
+            <div class="terminal-top">
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
+                <span class="terminal-dot"></span>
             </div>
 
+            <div class="terminal-body">
 
-            <div class="hero-terminal reveal">
-
-                <div class="terminal-top">
-                    <span class="terminal-dot"></span>
-                    <span class="terminal-dot"></span>
-                    <span class="terminal-dot"></span>
+                <div class="terminal-line">
+                    <span class="terminal-green">Who Am I </span>:
+                    Gajesh
                 </div>
 
-                <div class="terminal-body">
+                <div class="terminal-line terminal-blue">
+                    IT Support Professional
+                </div>
 
-                    <div class="terminal-line">
-                        <span class="terminal-green">Who Am I </span>:
-                        Gajesh
-                    </div>
+                <div class="terminal-line">
+                    <span class="terminal-green"> TECHNICAL SKILLS </span>
+                </div>
 
-                    <div class="terminal-line terminal-blue">
-                        IT Support Professional
-                    </div>
+                <div class="terminal-line terminal-purple">
+                    Windows | Microsoft 365 | ServiceNow
+                </div>
 
-                    <div class="terminal-line">
-                        <span class="terminal-green"> TECHNICAL SKILLS </span>
-                        
-                    </div>
+                <div class="terminal-line terminal-purple">
+                    Active Directory | Networking | Testing
+                </div>
 
-                    <div class="terminal-line terminal-purple">
-                        Windows | Microsoft 365 | ServiceNow
-                    </div>
+                <div class="terminal-line">
+                    <span class="terminal-green">Status </span>
+                </div>
 
-                    <div class="terminal-line terminal-purple">
-                        Active Directory | Networking | Testing
-                    </div>
+                <div class="terminal-line terminal-green">
+                    Ready to solve problems ✓
+                </div>
 
-                    <div class="terminal-line">
-                        <span class="terminal-green">Status </span>
-                        
-                    </div>
+                <div class="terminal-line">
+                    <span class="terminal-green"> VISA STATUS </span>
+                </div>
 
-                    <div class="terminal-line terminal-green">
-                        Ready to solve problems ✓
-                    </div>
-                     <div class="terminal-line">
-                        <span class="terminal-green"> VISA STATUS </span>
-                        
-                    </div>
-
-                    <div class="terminal-line terminal-green">
-                        POST STUDY WORK VISA
-                    </div>
-
+                <div class="terminal-line terminal-green">
+                    POST STUDY WORK VISA
                 </div>
 
             </div>
 
         </div>
 
-    </header>
+    </div>
+
+</header>
 
 
-    <!-- ================================
-         QUICK STATS
-    ================================= -->
+<!-- ================================
+     QUICK STATS
+================================= -->
 
-    <section class="section" style="padding-top: 25px;">
+<section class="section" style="padding-top: 25px;">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="stats">
+        <div class="stats">
 
-                <div class="stat-card reveal">
-                    <div class="stat-number">12/12</div>
-                    <div class="stat-label">AI Service Desk Tests Passed</div>
-                </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">12/12</div>
+                <div class="stat-label">AI Service Desk Tests Passed</div>
+            </div>
 
-                <div class="stat-card reveal">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">Years Customer & Technical Support</div>
-                </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Automated Service Desk Tickets</div>
+            </div>
 
-                <div class="stat-card reveal">
-                    <div class="stat-number">IT</div>
-                    <div class="stat-label">Support & Service Operations Focus</div>
-                </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Customer & Technical Support</div>
+            </div>
 
-                <div class="stat-card reveal">
-                    <div class="stat-number">MS</div>
-                    <div class="stat-label">Master of Software Engineering</div>
-                </div>
-
+            <div class="stat-card reveal">
+                <div class="stat-number">MS</div>
+                <div class="stat-label">Master of Software Engineering</div>
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================================
-         ABOUT
-    ================================= -->
+<!-- ================================
+     ABOUT
+================================= -->
 
-    <section class="section" id="about">
+<section class="section" id="about">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="section-title reveal">
-                <div class="eyebrow">About Me</div>
-                <h2>Technology with a service mindset.</h2>
-                <p>
-                    I enjoy solving technical problems, helping users, understanding
-                    systems and continuously learning new technologies.
-                </p>
-            </div>
-
-
-            <div class="about-grid">
-
-                <div class="glass-card reveal">
-
-                    <p>
-                        My background combines customer service, technical support,
-                        software testing and software engineering education.
-                        I am particularly interested in Service Desk, IT Support,
-                        Technical Support and Application Support roles.
-                    </p>
-
-                    <div class="highlight-list">
-
-                        <div class="highlight">
-                            <span>✓</span>
-                            Customer-focused technical troubleshooting
-                        </div>
-
-                        <div class="highlight">
-                            <span>✓</span>
-                            Incident and service request understanding
-                        </div>
-
-                        <div class="highlight">
-                            <span>✓</span>
-                            Manual and functional testing experience
-                        </div>
-
-                        <div class="highlight">
-                            <span>✓</span>
-                            Strong willingness to learn new technologies
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="glass-card reveal">
-
-                    <h3>What I bring</h3>
-
-                    <div class="highlight-list">
-
-                        <div class="highlight">
-                            <span>01</span>
-                            Calm and professional communication
-                        </div>
-
-                        <div class="highlight">
-                            <span>02</span>
-                            Structured troubleshooting
-                        </div>
-
-                        <div class="highlight">
-                            <span>03</span>
-                            Documentation and knowledge sharing
-                        </div>
-
-                        <div class="highlight">
-                            <span>04</span>
-                            Customer and team collaboration
-                        </div>
-
-                        <div class="highlight">
-                            <span>05</span>
-                            Testing and defect analysis mindset
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="section-title reveal">
+            <div class="eyebrow">About Me</div>
+            <h2>Technology with a service mindset.</h2>
+            <p>
+                I enjoy solving technical problems, helping users, understanding
+                systems and continuously learning new technologies.
+            </p>
         </div>
 
-    </section>
 
+        <div class="about-grid">
 
-    <!-- ================================
-         SKILLS
-    ================================= -->
-
-    <section class="section" id="skills">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <div class="eyebrow">Technical Skills</div>
-
-                <h2>Explore my IT toolkit.</h2>
+            <div class="glass-card reveal">
 
                 <p>
-                    Click a category to explore the technologies and areas I work with.
+                    My background combines customer service, technical support,
+                    software testing and software engineering education.
+                    I am particularly interested in Service Desk, IT Support,
+                    Technical Support and Application Support roles.
                 </p>
 
-            </div>
-
-
-            <div class="skill-tabs reveal">
-
-                <button class="skill-tab active" onclick="showSkill('support', this)">
-                    IT Support
-                </button>
-
-                <button class="skill-tab" onclick="showSkill('microsoft', this)">
-                    Microsoft
-                </button>
-
-                <button class="skill-tab" onclick="showSkill('testing', this)">
-                    Testing
-                </button>
-
-                <button class="skill-tab" onclick="showSkill('network', this)">
-                    Infrastructure
-                </button>
-
-                <button class="skill-tab" onclick="showSkill('service', this)">
-                    Service Management
-                </button>
-
-            </div>
-
-
-            <div id="support" class="skill-panel active">
-
-                <div class="skill-item">
-                    <strong>Windows Support</strong>
-                    <small>Windows 10/11, troubleshooting and configuration</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Hardware Support</strong>
-                    <small>Devices, peripherals and workplace technology</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>End-User Support</strong>
-                    <small>Customer-focused technical assistance</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Remote Support</strong>
-                    <small>Issue diagnosis and user guidance</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Issue Escalation</strong>
-                    <small>Identifying when specialist support is required</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Documentation</strong>
-                    <small>Clear technical notes and knowledge sharing</small>
-                </div>
-
-            </div>
-
-
-            <div id="microsoft" class="skill-panel">
-
-                <div class="skill-item">
-                    <strong>Microsoft 365</strong>
-                    <small>Microsoft 365 support concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Outlook</strong>
-                    <small>Email and connectivity troubleshooting</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Microsoft Teams</strong>
-                    <small>Communication and connectivity support</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Active Directory</strong>
-                    <small>User accounts, groups and permissions</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Entra ID</strong>
-                    <small>Identity and access management concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Windows Server</strong>
-                    <small>Windows Server and home lab administration</small>
-                </div>
-
-            </div>
-
-
-            <div id="testing" class="skill-panel">
-
-                <div class="skill-item">
-                    <strong>Manual Testing</strong>
-                    <small>Functional, regression and UAT testing</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>API Testing</strong>
-                    <small>API validation and test scenarios</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>SQL Validation</strong>
-                    <small>Data validation and query-based verification</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Defect Management</strong>
-                    <small>Defect reproduction, analysis and documentation</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Test Cases</strong>
-                    <small>Test scenarios, data and acceptance criteria</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>UAT</strong>
-                    <small>User acceptance and validation activities</small>
-                </div>
-
-            </div>
-
-
-            <div id="network" class="skill-panel">
-
-                <div class="skill-item">
-                    <strong>DNS</strong>
-                    <small>Configuration and troubleshooting concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>DHCP</strong>
-                    <small>Addressing and connectivity concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>TCP/IP</strong>
-                    <small>Network troubleshooting fundamentals</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Active Directory</strong>
-                    <small>Domain services and user administration</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Group Policy</strong>
-                    <small>GPO configuration in home lab</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Connectivity</strong>
-                    <small>Authentication and network issue diagnosis</small>
-                </div>
-
-            </div>
-
-
-            <div id="service" class="skill-panel">
-
-                <div class="skill-item">
-                    <strong>ServiceNow</strong>
-                    <small>Ticketing and IT service management concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Incident Management</strong>
-                    <small>Issue identification and resolution workflow</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Service Requests</strong>
-                    <small>Request classification and fulfilment concepts</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>SLA Awareness</strong>
-                    <small>Priority, urgency and response awareness</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Ticket Documentation</strong>
-                    <small>Clear and accurate support records</small>
-                </div>
-
-                <div class="skill-item">
-                    <strong>Escalation</strong>
-                    <small>Structured handover and issue escalation</small>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         PROJECTS
-    ================================= -->
-
-    <section class="section" id="projects">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <div class="eyebrow">Featured Project</div>
-
-                <h2>AI Service Desk Agent.</h2>
-
-                <p>
-                    A practical no-code AI project designed around real Level 1
-                    IT Service Desk workflows.
-                </p>
-
-            </div>
-
-
-            <!-- AI PROJECT -->
-
-            <div class="featured-project reveal">
-
-                <div class="project-main">
-
-                    <div class="project-header">
-
-                        <div>
-
-                            <div class="project-badge">
-                                Featured AI Project
-                            </div>
-
-                            <h3>AI Service Desk Agent</h3>
-
-                            <p class="project-description">
-                                A no-code AI-powered Level 1 IT Service Desk assistant
-                                built using Claude and a custom IT Service Desk
-                                Knowledge Base. The agent identifies issues,
-                                classifies requests, assesses priority, provides
-                                safe troubleshooting guidance and prepares
-                                ServiceNow-ready ticket information.
-                            </p>
-
-                        </div>
-
-                        <div class="project-status">
-                            12/12 TESTS PASSED
-                        </div>
-
+                <div class="highlight-list">
+
+                    <div class="highlight">
+                        <span>✓</span>
+                        Customer-focused technical troubleshooting
                     </div>
 
-
-                    <div class="tech-tags">
-
-                        <span class="tech-tag">Claude AI</span>
-                        <span class="tech-tag">No-Code AI</span>
-                        <span class="tech-tag">ITSM</span>
-                        <span class="tech-tag">ServiceNow Concepts</span>
-                        <span class="tech-tag">Windows</span>
-                        <span class="tech-tag">Microsoft 365</span>
-
+                    <div class="highlight">
+                        <span>✓</span>
+                        Incident and service request understanding
                     </div>
 
-
-                    <button class="explore-btn" onclick="toggleProject()">
-                        <span id="projectButtonText">
-                            Explore Project ↓
-                        </span>
-                    </button>
-
-                </div>
-
-
-                <!-- PROJECT DETAILS -->
-
-                <div class="project-details" id="projectDetails">
-
-                    <div class="detail-grid">
-
-                        <!-- Overview -->
-
-                        <div class="detail-card">
-
-                            <h4>🎯 Objective</h4>
-
-                            <p>
-                                Demonstrate how an AI assistant can support Level 1
-                                IT Service Desk operations while following practical
-                                IT support, security and least-privilege principles.
-                            </p>
-
-                        </div>
-
-
-                        <!-- Capabilities -->
-
-                        <div class="detail-card">
-
-                            <h4>⚙️ Key Capabilities</h4>
-
-                            <ul>
-                                <li>Incident vs Service Request classification</li>
-                                <li>Impact and urgency assessment</li>
-                                <li>Priority recommendation</li>
-                                <li>Knowledge Base troubleshooting</li>
-                                <li>Windows and Microsoft 365 support</li>
-                                <li>Network, Wi-Fi and VPN troubleshooting</li>
-                                <li>Security incident identification</li>
-                                <li>Ticket summarisation and documentation</li>
-                            </ul>
-
-                        </div>
-
-
-                        <!-- Workflow -->
-
-                        <div class="detail-card" style="grid-column: 1 / -1;">
-
-                            <h4>🔄 Service Desk Workflow</h4>
-
-                            <div class="workflow">
-
-                                <div class="workflow-step">
-                                    User Issue
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    Classification
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    Impact & Urgency
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    Priority
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    KB Lookup
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    L1 Troubleshooting
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    Resolve / Escalate
-                                </div>
-
-                                <div class="workflow-arrow">→</div>
-
-                                <div class="workflow-step">
-                                    Ticket Documentation
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Testing -->
-
-                        <div class="detail-card" style="grid-column: 1 / -1;">
-
-                            <h4>🧪 Testing — 12/12 Passed</h4>
-
-                            <p style="margin-bottom: 18px;">
-                                The agent was tested against realistic IT Service Desk
-                                scenarios.
-                            </p>
-
-
-                            <div class="test-grid">
-
-                                <div class="test-card" onclick="showTest(1)">
-                                    Windows Password
-                                </div>
-
-                                <div class="test-card" onclick="showTest(2)">
-                                    Wi-Fi Connectivity
-                                </div>
-
-                                <div class="test-card" onclick="showTest(3)">
-                                    Microsoft Teams
-                                </div>
-
-                                <div class="test-card" onclick="showTest(4)">
-                                    Printer Queue
-                                </div>
-
-                                <div class="test-card" onclick="showTest(5)">
-                                    Shared Folder
-                                </div>
-
-                                <div class="test-card" onclick="showTest(6)">
-                                    Shared Drive Outage
-                                </div>
-
-                                <div class="test-card" onclick="showTest(7)">
-                                    Outlook Issue
-                                </div>
-
-                                <div class="test-card" onclick="showTest(8)">
-                                    Phishing
-                                </div>
-
-                                <div class="test-card" onclick="showTest(9)">
-                                    Account Lockout
-                                </div>
-
-                                <div class="test-card" onclick="showTest(10)">
-                                    Admin Request
-                                </div>
-
-                                <div class="test-card" onclick="showTest(11)">
-                                    VPN Connectivity
-                                </div>
-
-                                <div class="test-card" onclick="showTest(12)">
-                                    Software Installation
-                                </div>
-
-                            </div>
-
-
-                            <div id="testOutput" class="test-output">
-                                Select a test scenario above.
-                            </div>
-
-                        </div>
-
-
-                        <!-- Security -->
-
-                        <div class="detail-card">
-
-                            <h4>🔐 Security Principles</h4>
-
-                            <ul>
-                                <li>Never request passwords or MFA codes</li>
-                                <li>Never bypass access controls</li>
-                                <li>Apply least privilege</li>
-                                <li>Require appropriate approval</li>
-                                <li>Escalate suspected security incidents</li>
-                                <li>Never claim an action was performed without confirmation</li>
-                            </ul>
-
-                        </div>
-
-
-                        <!-- Limitation -->
-
-                        <div class="detail-card">
-
-                            <h4>⚠️ Current Limitation</h4>
-
-                            <p>
-                                The project currently has no live ServiceNow,
-                                Active Directory, Entra ID, endpoint-management or
-                                other IT-system integration.
-                            </p>
-
-                            <br>
-
-                            <p>
-                                The agent therefore prepares recommendations and
-                                ticket content rather than performing administrative
-                                actions.
-                            </p>
-
-                        </div>
-
-
-                        <!-- Future -->
-
-                        <div class="detail-card" style="grid-column: 1 / -1;">
-
-                            <h4>🚀 Future Improvements</h4>
-
-                            <div class="tech-tags">
-
-                                <span class="tech-tag">ServiceNow API</span>
-                                <span class="tech-tag">Entra ID Integration</span>
-                                <span class="tech-tag">Teams Integration</span>
-                                <span class="tech-tag">Endpoint Management</span>
-                                <span class="tech-tag">Automated Ticket Creation</span>
-                                <span class="tech-tag">Human Approval Workflows</span>
-                                <span class="tech-tag">IT Asset Lookup</span>
-                                <span class="tech-tag">Service Desk Analytics</span>
-
-                            </div>
-
-                        </div>
-
+                    <div class="highlight">
+                        <span>✓</span>
+                        Manual and functional testing experience
+                    </div>
+
+                    <div class="highlight">
+                        <span>✓</span>
+                        Strong willingness to learn new technologies
                     </div>
 
                 </div>
@@ -1814,60 +1232,35 @@
             </div>
 
 
-            <!-- OTHER PROJECTS -->
+            <div class="glass-card reveal">
 
-            <div style="height: 30px;"></div>
+                <h3>What I bring</h3>
 
+                <div class="highlight-list">
 
-            <div class="detail-grid">
-
-                <div class="glass-card reveal">
-
-                    <div class="project-badge">
-                        Software Engineering
+                    <div class="highlight">
+                        <span>01</span>
+                        Calm and professional communication
                     </div>
 
-                    <h3>Smart Heart</h3>
-
-                    <p style="margin-top: 10px;">
-                        Predictive analytics project for ischemic heart disease
-                        using health records, wearable data and explainable AI.
-                    </p>
-
-                    <div class="tech-tags">
-
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Snowflake</span>
-                        <span class="tech-tag">Azure Data Factory</span>
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">SHAP</span>
-
+                    <div class="highlight">
+                        <span>02</span>
+                        Structured troubleshooting
                     </div>
 
-                </div>
-
-
-                <div class="glass-card reveal">
-
-                    <div class="project-badge">
-                        Infrastructure
+                    <div class="highlight">
+                        <span>03</span>
+                        Documentation and knowledge sharing
                     </div>
 
-                    <h3>Enterprise Windows Lab</h3>
+                    <div class="highlight">
+                        <span>04</span>
+                        Customer and team collaboration
+                    </div>
 
-                    <p style="margin-top: 10px;">
-                        Windows Server home lab covering Active Directory,
-                        users, groups, OUs, GPO, DNS and DHCP.
-                    </p>
-
-                    <div class="tech-tags">
-
-                        <span class="tech-tag">Windows Server 2019</span>
-                        <span class="tech-tag">AD DS</span>
-                        <span class="tech-tag">DNS</span>
-                        <span class="tech-tag">DHCP</span>
-                        <span class="tech-tag">GPO</span>
-
+                    <div class="highlight">
+                        <span>05</span>
+                        Testing and defect analysis mindset
                     </div>
 
                 </div>
@@ -1876,109 +1269,853 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================================
-         HOME LAB
-    ================================= -->
+<!-- ================================
+     SKILLS
+================================= -->
 
-    <section class="section" id="lab">
+<section class="section" id="skills">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="section-title reveal">
+        <div class="section-title reveal">
 
-                <div class="eyebrow">Infrastructure Lab</div>
+            <div class="eyebrow">Technical Skills</div>
 
-                <h2>Inside my Windows environment.</h2>
+            <h2>Explore my IT toolkit.</h2>
 
-                <p>
-                    A practical home lab used to build hands-on understanding
-                    of enterprise Windows infrastructure.
-                </p>
+            <p>
+                Click a category to explore the technologies and areas I work with.
+            </p>
 
+        </div>
+
+
+        <div class="skill-tabs reveal">
+
+            <button class="skill-tab active" onclick="showSkill('support', this)">
+                IT Support
+            </button>
+
+            <button class="skill-tab" onclick="showSkill('microsoft', this)">
+                Microsoft
+            </button>
+
+            <button class="skill-tab" onclick="showSkill('testing', this)">
+                Testing
+            </button>
+
+            <button class="skill-tab" onclick="showSkill('network', this)">
+                Infrastructure
+            </button>
+
+            <button class="skill-tab" onclick="showSkill('service', this)">
+                Service Management
+            </button>
+
+        </div>
+
+
+        <div id="support" class="skill-panel active">
+
+            <div class="skill-item">
+                <strong>Windows Support</strong>
+                <small>Windows 10/11, troubleshooting and configuration</small>
             </div>
 
+            <div class="skill-item">
+                <strong>Hardware Support</strong>
+                <small>Devices, peripherals and workplace technology</small>
+            </div>
 
-            <div class="lab-grid">
+            <div class="skill-item">
+                <strong>End-User Support</strong>
+                <small>Customer-focused technical assistance</small>
+            </div>
 
-                <div class="architecture reveal">
+            <div class="skill-item">
+                <strong>Remote Support</strong>
+                <small>Issue diagnosis and user guidance</small>
+            </div>
 
-                    <div class="arch-node">
-                        Windows Server 2019
-                    </div>
+            <div class="skill-item">
+                <strong>Issue Escalation</strong>
+                <small>Identifying when specialist support is required</small>
+            </div>
 
-                    <div class="arch-line"></div>
+            <div class="skill-item">
+                <strong>Documentation</strong>
+                <small>Clear technical notes and knowledge sharing</small>
+            </div>
 
-                    <div class="arch-node">
-                        Active Directory Domain Services
-                    </div>
-
-                    <div class="arch-line"></div>
-
-                    <div class="arch-node">
-                        Users • Groups • OUs
-                    </div>
-
-                    <div class="arch-line"></div>
-
-                    <div class="arch-node">
-                        Group Policy
-                    </div>
-
-                    <div class="arch-line"></div>
-
-                    <div class="arch-node">
-                        DNS • DHCP • Connectivity
-                    </div>
-
-                </div>
+        </div>
 
 
-                <div class="lab-info">
+        <div id="microsoft" class="skill-panel">
 
-                    <div class="lab-item reveal">
+            <div class="skill-item">
+                <strong>Microsoft 365</strong>
+                <small>Microsoft 365 support concepts</small>
+            </div>
 
-                        <h4>👤 User Administration</h4>
+            <div class="skill-item">
+                <strong>Outlook</strong>
+                <small>Email and connectivity troubleshooting</small>
+            </div>
 
-                        <p>
-                            Created and managed users, groups, organisational
-                            units and access permissions.
+            <div class="skill-item">
+                <strong>Microsoft Teams</strong>
+                <small>Communication and connectivity support</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Active Directory</strong>
+                <small>User accounts, groups and permissions</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Entra ID</strong>
+                <small>Identity and access management concepts</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Windows Server</strong>
+                <small>Windows Server and home lab administration</small>
+            </div>
+
+        </div>
+
+
+        <div id="testing" class="skill-panel">
+
+            <div class="skill-item">
+                <strong>Manual Testing</strong>
+                <small>Functional, regression and UAT testing</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>API Testing</strong>
+                <small>API validation and test scenarios</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>SQL Validation</strong>
+                <small>Data validation and query-based verification</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Defect Management</strong>
+                <small>Defect reproduction, analysis and documentation</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Test Cases</strong>
+                <small>Test scenarios, data and acceptance criteria</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>UAT</strong>
+                <small>User acceptance and validation activities</small>
+            </div>
+
+        </div>
+
+
+        <div id="network" class="skill-panel">
+
+            <div class="skill-item">
+                <strong>DNS</strong>
+                <small>Configuration and troubleshooting concepts</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>DHCP</strong>
+                <small>Addressing and connectivity concepts</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>TCP/IP</strong>
+                <small>Network troubleshooting fundamentals</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Active Directory</strong>
+                <small>Domain services and user administration</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Group Policy</strong>
+                <small>GPO configuration in home lab</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Connectivity</strong>
+                <small>Authentication and network issue diagnosis</small>
+            </div>
+
+        </div>
+
+
+        <div id="service" class="skill-panel">
+
+            <div class="skill-item">
+                <strong>ServiceNow</strong>
+                <small>Ticketing and IT service management concepts</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Incident Management</strong>
+                <small>Issue identification and resolution workflow</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Service Requests</strong>
+                <small>Request classification and fulfilment concepts</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>SLA Awareness</strong>
+                <small>Priority, urgency and response awareness</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Ticket Documentation</strong>
+                <small>Clear and accurate support records</small>
+            </div>
+
+            <div class="skill-item">
+                <strong>Escalation</strong>
+                <small>Structured handover and issue escalation</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     PROJECTS
+================================= -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Featured Project</div>
+
+            <h2>AI Service Desk Agent.</h2>
+
+            <p>
+                A practical no-code AI project designed around real Level 1
+                IT Service Desk workflows, automated ticket processing and
+                structured service desk reporting.
+            </p>
+
+        </div>
+
+
+        <!-- AI PROJECT -->
+
+        <div class="featured-project reveal">
+
+            <div class="project-main">
+
+                <div class="project-header">
+
+                    <div>
+
+                        <div class="project-badge">
+                            Featured AI Project
+                        </div>
+
+                        <h3>AI Service Desk Agent</h3>
+
+                        <p class="project-description">
+                            A no-code AI-powered Level 1 IT Service Desk assistant
+                            built using Claude, a custom IT Service Desk Knowledge
+                            Base, Make automation and Google Sheets. The agent
+                            identifies issues, classifies requests, assesses
+                            priority, provides safe troubleshooting guidance and
+                            creates structured ticket information that is
+                            automatically transferred into the ticket database.
                         </p>
 
                     </div>
 
-                    <div class="lab-item reveal">
+                    <div class="project-status">
+                        12/12 TESTS PASSED
+                    </div>
 
-                        <h4>🌐 DNS & DHCP</h4>
+                </div>
+
+
+                <div class="tech-tags">
+
+                    <span class="tech-tag">Claude AI</span>
+                    <span class="tech-tag">No-Code AI</span>
+                    <span class="tech-tag">Make</span>
+                    <span class="tech-tag">Google Sheets</span>
+                    <span class="tech-tag">ITSM</span>
+                    <span class="tech-tag">ServiceNow Concepts</span>
+                    <span class="tech-tag">Windows</span>
+                    <span class="tech-tag">Microsoft 365</span>
+
+                </div>
+
+
+                <button class="explore-btn" onclick="toggleProject()">
+                    <span id="projectButtonText">
+                        Explore Project ↓
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT DETAILS -->
+
+            <div class="project-details" id="projectDetails">
+
+                <div class="detail-grid">
+
+                    <!-- Overview -->
+
+                    <div class="detail-card">
+
+                        <h4>🎯 Objective</h4>
 
                         <p>
-                            Built and troubleshot core networking services
-                            required for domain connectivity.
+                            Demonstrate how a no-code AI assistant can support
+                            Level 1 IT Service Desk operations by analysing a
+                            user's issue, following a structured troubleshooting
+                            process, creating a service desk ticket and
+                            automatically storing the ticket for reporting.
                         </p>
 
                     </div>
 
-                    <div class="lab-item reveal">
 
-                        <h4>⚙️ Group Policy</h4>
+                    <!-- Capabilities -->
+
+                    <div class="detail-card">
+
+                        <h4>⚙️ Key Capabilities</h4>
+
+                        <ul>
+                            <li>Incident vs Service Request classification</li>
+                            <li>Impact and urgency assessment</li>
+                            <li>Priority recommendation</li>
+                            <li>Knowledge Base troubleshooting</li>
+                            <li>Windows and Microsoft 365 support</li>
+                            <li>Network, Wi-Fi and VPN troubleshooting</li>
+                            <li>Security incident identification</li>
+                            <li>Ticket summarisation and documentation</li>
+                            <li>Escalation decision support</li>
+                            <li>Automated ticket data transfer</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Workflow -->
+
+                    <div class="detail-card" style="grid-column: 1 / -1;">
+
+                        <h4>🔄 Complete AI Service Desk Workflow</h4>
+
+                        <div class="workflow">
+
+                            <div class="workflow-step">
+                                User Issue
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Claude AI
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Classification
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Impact & Urgency
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Priority
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                KB Lookup
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                L1 Troubleshooting
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Resolve / Escalate
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Make Automation
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                Google Sheets
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Claude -->
+
+                    <div class="detail-card">
+
+                        <h4>🤖 Claude AI — Service Desk Brain</h4>
 
                         <p>
-                            Worked with Group Policy concepts and configuration
-                            within the Windows Server environment.
+                            Claude acts as the reasoning and service desk
+                            assistant layer. It receives the user's issue,
+                            asks or evaluates relevant diagnostic information,
+                            classifies the ticket and produces structured
+                            service desk information.
+                        </p>
+
+                        <br>
+
+                        <ul>
+                            <li>Understands the user's issue</li>
+                            <li>Classifies the ticket</li>
+                            <li>Assesses impact and urgency</li>
+                            <li>Determines priority</li>
+                            <li>Uses the Service Desk Knowledge Base</li>
+                            <li>Provides Level 1 troubleshooting</li>
+                            <li>Determines whether escalation is required</li>
+                            <li>Creates structured ticket information</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Make -->
+
+                    <div class="detail-card">
+
+                        <h4>⚡ Make — Automation Layer</h4>
+
+                        <p>
+                            Make was used as the automation layer between
+                            Claude and Google Sheets. This separates the AI
+                            reasoning from the data-transfer process and
+                            allows the completed ticket information to be
+                            automatically passed into the ticket database.
+                        </p>
+
+                        <br>
+
+                        <ul>
+                            <li>Receives structured ticket information</li>
+                            <li>Maps ticket fields</li>
+                            <li>Transfers ticket data automatically</li>
+                            <li>Creates a new ticket row in Google Sheets</li>
+                            <li>Reduces manual copy-and-paste work</li>
+                            <li>Provides a repeatable automation workflow</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Google Sheets -->
+
+                    <div class="detail-card">
+
+                        <h4>📊 Google Sheets — Ticket Database</h4>
+
+                        <p>
+                            Google Sheets was used as a simple cloud-based
+                            ticket database and reporting layer. Every
+                            automated ticket is stored as a structured row,
+                            making the data easy to review, filter and use
+                            for dashboard reporting.
+                        </p>
+
+                        <br>
+
+                        <ul>
+                            <li>Ticket ID</li>
+                            <li>Date</li>
+                            <li>Short Description</li>
+                            <li>Description</li>
+                            <li>Category</li>
+                            <li>Type</li>
+                            <li>Impact</li>
+                            <li>Urgency</li>
+                            <li>Priority</li>
+                            <li>Status</li>
+                            <li>Troubleshooting</li>
+                            <li>Resolution</li>
+                            <li>Root Cause</li>
+                            <li>Assignment Group</li>
+                            <li>Business Impact</li>
+                            <li>KB Reference</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Dashboard -->
+
+                    <div class="detail-card">
+
+                        <h4>📈 Service Desk Dashboard</h4>
+
+                        <p>
+                            A Google Sheets dashboard was created from the
+                            stored ticket data to provide a quick operational
+                            view of the AI Service Desk activity.
+                        </p>
+
+                        <br>
+
+                        <ul>
+                            <li><strong>Total Tickets:</strong> 5</li>
+                            <li><strong>Resolved:</strong> 3</li>
+                            <li><strong>Escalated:</strong> 1</li>
+                            <li><strong>Tickets Tracked:</strong> 5</li>
+                        </ul>
+
+                        <br>
+
+                        <p>
+                            The dashboard provides a simple way to monitor
+                            ticket volume and resolution/escalation status
+                            without requiring a separate ITSM platform.
                         </p>
 
                     </div>
 
-                    <div class="lab-item reveal">
 
-                        <h4>📝 Documentation</h4>
+                    <!-- Ticket Data -->
+
+                    <div class="detail-card" style="grid-column: 1 / -1;">
+
+                        <h4>🎫 Automated Ticket Records</h4>
+
+                        <p style="margin-bottom: 18px;">
+                            The workflow was tested using real service desk
+                            scenarios and the resulting ticket records were
+                            stored in Google Sheets.
+                        </p>
+
+                        <div class="test-grid">
+
+                            <div class="test-card">
+                                INC-0001
+                            </div>
+
+                            <div class="test-card">
+                                INC-0004
+                            </div>
+
+                            <div class="test-card">
+                                INC-0005
+                            </div>
+
+                            <div class="test-card">
+                                INC-0006
+                            </div>
+
+                            <div class="test-card">
+                                INC-0007
+                            </div>
+
+                        </div>
+
+                        <div class="test-output active">
+
+                            <strong>Current Ticket Data</strong>
+
+                            <br><br>
+
+                            <strong>INC-0001</strong> — Outlook desktop
+                            would not open — Resolved / User Confirmed.
+
+                            <br><br>
+
+                            <strong>INC-0004</strong> — Final AI Service Desk
+                            automation test — Resolved / User Confirmed.
+
+                            <br><br>
+
+                            <strong>INC-0005</strong> — Outlook desktop
+                            client would not open, including in Safe Mode —
+                            Escalation Recommended / Not Submitted.
+
+                            <br><br>
+
+                            <strong>INC-0006</strong> — Outlook desktop
+                            client would not open, including in Safe Mode —
+                            Escalation Required.
+
+                            <br><br>
+
+                            <strong>INC-0007</strong> — VPN and Wi-Fi both
+                            failing on laptop — Resolved / User Confirmed.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Why Make -->
+
+                    <div class="detail-card" style="grid-column: 1 / -1;">
+
+                        <h4>💡 Why I Used Make</h4>
 
                         <p>
-                            Documented configurations, troubleshooting steps
-                            and knowledge gained from the lab.
+                            Claude is useful for understanding the user's
+                            problem and producing structured service desk
+                            information, but the project also needed a reliable
+                            way to move that structured information into a
+                            central ticket record.
                         </p>
+
+                        <br>
+
+                        <p>
+                            Make was introduced as the automation layer so the
+                            workflow could connect the AI output to Google
+                            Sheets. Instead of manually copying every ticket,
+                            Make receives the ticket data, maps the required
+                            fields and writes the information into the next
+                            available row of the ticket sheet.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            This demonstrates an important service desk
+                            automation concept: <strong>AI reasoning →
+                            automation → structured ticket storage →
+                            reporting.</strong>
+                        </p>
+
+                    </div>
+
+
+                    <!-- Why Google Sheets -->
+
+                    <div class="detail-card">
+
+                        <h4>📋 Why Google Sheets</h4>
+
+                        <p>
+                            Google Sheets was selected as the project database
+                            because it is cloud-based, easy to inspect and
+                            suitable for a beginner-friendly no-code
+                            implementation.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            It allowed the project to move beyond a simple AI
+                            chatbot and demonstrate actual ticket storage,
+                            structured fields, filtering and dashboard
+                            reporting.
+                        </p>
+
+                    </div>
+
+
+                    <!-- What Was Built -->
+
+                    <div class="detail-card">
+
+                        <h4>🛠️ What Was Built</h4>
+
+                        <ul>
+                            <li>Custom IT Service Desk AI workflow</li>
+                            <li>Service Desk Knowledge Base</li>
+                            <li>Structured ticket format</li>
+                            <li>Claude AI ticket processing</li>
+                            <li>Make automation scenario</li>
+                            <li>Google Sheets ticket database</li>
+                            <li>16-field ticket structure</li>
+                            <li>Service Desk dashboard</li>
+                            <li>Automated ticket record creation</li>
+                            <li>Escalation handling logic</li>
+                            <li>Realistic service desk test scenarios</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Testing -->
+
+                    <div class="detail-card" style="grid-column: 1 / -1;">
+
+                        <h4>🧪 AI Agent Testing — 12/12 Passed</h4>
+
+                        <p style="margin-bottom: 18px;">
+                            The AI agent was tested against realistic IT Service
+                            Desk scenarios before the automation workflow was
+                            extended to ticket storage.
+                        </p>
+
+
+                        <div class="test-grid">
+
+                            <div class="test-card" onclick="showTest(1)">
+                                Windows Password
+                            </div>
+
+                            <div class="test-card" onclick="showTest(2)">
+                                Wi-Fi Connectivity
+                            </div>
+
+                            <div class="test-card" onclick="showTest(3)">
+                                Microsoft Teams
+                            </div>
+
+                            <div class="test-card" onclick="showTest(4)">
+                                Printer Queue
+                            </div>
+
+                            <div class="test-card" onclick="showTest(5)">
+                                Shared Folder
+                            </div>
+
+                            <div class="test-card" onclick="showTest(6)">
+                                Shared Drive Outage
+                            </div>
+
+                            <div class="test-card" onclick="showTest(7)">
+                                Outlook Issue
+                            </div>
+
+                            <div class="test-card" onclick="showTest(8)">
+                                Phishing
+                            </div>
+
+                            <div class="test-card" onclick="showTest(9)">
+                                Account Lockout
+                            </div>
+
+                            <div class="test-card" onclick="showTest(10)">
+                                Admin Request
+                            </div>
+
+                            <div class="test-card" onclick="showTest(11)">
+                                VPN Connectivity
+                            </div>
+
+                            <div class="test-card" onclick="showTest(12)">
+                                Software Installation
+                            </div>
+
+                        </div>
+
+
+                        <div id="testOutput" class="test-output">
+                            Select a test scenario above.
+                        </div>
+
+                    </div>
+
+
+                    <!-- Security -->
+
+                    <div class="detail-card">
+
+                        <h4>🔐 Security Principles</h4>
+
+                        <ul>
+                            <li>Never request passwords or MFA codes</li>
+                            <li>Never bypass access controls</li>
+                            <li>Apply least privilege</li>
+                            <li>Require appropriate approval</li>
+                            <li>Escalate suspected security incidents</li>
+                            <li>Never claim an action was performed without confirmation</li>
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Limitation -->
+
+                    <div class="detail-card">
+
+                        <h4>⚠️ Current Limitation</h4>
+
+                        <p>
+                            The project currently does not have live
+                            ServiceNow, Active Directory, Entra ID,
+                            endpoint-management or other enterprise IT-system
+                            integration.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Google Sheets is currently used as the ticket
+                            storage and dashboard layer. The agent and
+                            automation therefore demonstrate the workflow
+                            without performing privileged administrative
+                            actions in live IT systems.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Future -->
+
+                    <div class="detail-card" style="grid-column: 1 / -1;">
+
+                        <h4>🚀 Future Improvements</h4>
+
+                        <div class="tech-tags">
+
+                            <span class="tech-tag">ServiceNow API</span>
+                            <span class="tech-tag">Entra ID Integration</span>
+                            <span class="tech-tag">Teams Integration</span>
+                            <span class="tech-tag">Endpoint Management</span>
+                            <span class="tech-tag">Automated Ticket Creation</span>
+                            <span class="tech-tag">Human Approval Workflows</span>
+                            <span class="tech-tag">IT Asset Lookup</span>
+                            <span class="tech-tag">Service Desk Analytics</span>
+
+                        </div>
 
                     </div>
 
@@ -1988,309 +2125,60 @@
 
         </div>
 
-    </section>
 
+        <!-- OTHER PROJECTS -->
 
-    <!-- ================================
-         EXPERIENCE
-    ================================= -->
+        <div style="height: 30px;"></div>
 
-    <section class="section" id="experience">
 
-        <div class="container">
+        <div class="detail-grid">
 
-            <div class="section-title reveal">
-
-                <div class="eyebrow">Experience</div>
-
-                <h2>My professional journey.</h2>
-
-                <p>
-                    Click an experience to explore the role and responsibilities.
-                </p>
-
-            </div>
-
-
-            <div class="timeline">
-
-
-                <!-- SkyCity -->
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card" onclick="toggleTimeline(this)">
-
-                        <div class="timeline-date">
-                            SEP 2025 — PRESENT
-                        </div>
-
-                        <h3>Gaming Machine Operations & Customer Support</h3>
-
-                        <div class="timeline-company">
-                            SkyCity Entertainment Group • Auckland
-                        </div>
-
-                        <div class="timeline-details">
-
-                            <p>
-                                Customer-facing role involving real-time issue
-                                resolution, technical troubleshooting and
-                                escalation within a fast-paced environment.
-                            </p>
-
-                            <br>
-
-                            <p>
-                                Experience includes resolving transaction issues,
-                                gaming machine technical issues, meter delta
-                                problems, system access and reconciliation
-                                concerns while communicating technical information
-                                clearly to non-technical users.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BP -->
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card" onclick="toggleTimeline(this)">
-
-                        <div class="timeline-date">
-                            SEP 2024 — SEP 2025
-                        </div>
-
-                        <h3>Customer Service & Technical Support</h3>
-
-                        <div class="timeline-company">
-                            BP Connect • Auckland
-                        </div>
-
-                        <div class="timeline-details">
-
-                            <p>
-                                Customer-facing support experience with technical
-                                troubleshooting, issue logging, prioritisation,
-                                documentation and escalation.
-                            </p>
-
-                            <br>
-
-                            <p>
-                                Developed strong communication, problem-solving
-                                and customer service skills in a fast-paced
-                                operational environment.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- BYJU'S -->
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card" onclick="toggleTimeline(this)">
-
-                        <div class="timeline-date">
-                            MAY 2021 — SEP 2023
-                        </div>
-
-                        <h3>Senior Business Development & Customer Support Analyst</h3>
-
-                        <div class="timeline-company">
-                            BYJU'S / Think & Learn • India
-                        </div>
-
-                        <div class="timeline-details">
-
-                            <p>
-                                Supported customers remotely through Level 1–2
-                                issue resolution, helpdesk tickets and software,
-                                hardware and system troubleshooting.
-                            </p>
-
-                            <br>
-
-                            <p>
-                                Maintained ticket documentation, prepared
-                                knowledge content and escalated recurring
-                                issues for further investigation.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TLX -->
-
-                <div class="timeline-item reveal">
-
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-card" onclick="toggleTimeline(this)">
-
-                        <div class="timeline-date">
-                            AUG 2019 — JUL 2020
-                        </div>
-
-                        <h3>Test Analyst & Technical Problem-Solver</h3>
-
-                        <div class="timeline-company">
-                            TLX Tech Solutions • Coimbatore
-                        </div>
-
-                        <div class="timeline-details">
-
-                            <p>
-                                Performed manual, functional, regression,
-                                integration and UAT testing.
-                            </p>
-
-                            <br>
-
-                            <p>
-                                Worked with test cases, API testing, SQL
-                                validation, defect reproduction, defect
-                                documentation and collaboration with developers.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         EDUCATION
-    ================================= -->
-
-    <section class="section" id="education">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <div class="eyebrow">Education</div>
-
-                <h2>Education & foundation.</h2>
-
-            </div>
-
-
-            <div class="education-grid">
-
-                <div class="education-card reveal">
-
-                    <span>MASTER'S DEGREE</span>
-
-                    <h3>Master of Software Engineering</h3>
-
-                    <p>
-                        Yoobee College of Creative Innovation • Auckland
-                    </p>
-
-                    <p style="margin-top: 8px;">
-                        Completed June 2025
-                    </p>
-
-                </div>
-
-
-                <div class="education-card reveal">
-
-                    <span>BACHELOR'S DEGREE</span>
-
-                    <h3>Bachelor of Engineering</h3>
-
-                    <p>
-                        Electronics & Communication Engineering
-                    </p>
-
-                    <p style="margin-top: 8px;">
-                        SNS College of Engineering • Coimbatore
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================================
-         CONTACT
-    ================================= -->
-
-    <section class="section" id="contact">
-
-        <div class="container">
-
-            <div class="contact-box reveal">
+            <div class="glass-card reveal">
 
                 <div class="project-badge">
-                    Let's Connect
+                    Software Engineering
                 </div>
 
-                <h2>Let's solve the next problem.</h2>
+                <h3>Smart Heart</h3>
 
-                <p>
-                    I'm interested in Service Desk, IT Support, Technical Support,
-                    Application Support and related opportunities.
+                <p style="margin-top: 10px;">
+                    Predictive analytics project for ischemic heart disease
+                    using health records, wearable data and explainable AI.
                 </p>
 
+                <div class="tech-tags">
 
-                <div class="contact-links">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Snowflake</span>
+                    <span class="tech-tag">Azure Data Factory</span>
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">SHAP</span>
 
-                    <a
-                        href="mailto:gajeshdeva@gmail.com"
-                        class="btn btn-primary">
-                        Email Me
-                    </a>
+                </div>
 
-                    <a
-                        href="https://www.linkedin.com/in/gajeshwaran"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-secondary">
-                        LinkedIn
-                    </a>
+            </div>
 
-                    <a
-                        href="https://github.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-secondary">
-                        GitHub
-                    </a>
+
+            <div class="glass-card reveal">
+
+                <div class="project-badge">
+                    Infrastructure
+                </div>
+
+                <h3>Enterprise Windows Lab</h3>
+
+                <p style="margin-top: 10px;">
+                    Windows Server home lab covering Active Directory,
+                    users, groups, OUs, GPO, DNS and DHCP.
+                </p>
+
+                <div class="tech-tags">
+
+                    <span class="tech-tag">Windows Server 2019</span>
+                    <span class="tech-tag">AD DS</span>
+                    <span class="tech-tag">DNS</span>
+                    <span class="tech-tag">DHCP</span>
+                    <span class="tech-tag">GPO</span>
 
                 </div>
 
@@ -2298,233 +2186,658 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+<!-- ================================
+     HOME LAB
+================================= -->
 
-    <footer>
+<section class="section" id="lab">
 
-        <div class="container">
+    <div class="container">
 
-            © 2026 Gajeshwaran • IT Support & Service Desk Portfolio
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Infrastructure Lab</div>
+
+            <h2>Inside my Windows environment.</h2>
+
+            <p>
+                A practical home lab used to build hands-on understanding
+                of enterprise Windows infrastructure.
+            </p>
 
         </div>
 
-    </footer>
+
+        <div class="lab-grid">
+
+            <div class="architecture reveal">
+
+                <div class="arch-node">
+                    Windows Server 2019
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                    Active Directory Domain Services
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                    Users • Groups • OUs
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                    Group Policy
+                </div>
+
+                <div class="arch-line"></div>
+
+                <div class="arch-node">
+                    DNS • DHCP • Connectivity
+                </div>
+
+            </div>
 
 
-    <!-- BACK TO TOP -->
+            <div class="lab-info">
 
-    <button id="topBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        ↑
-    </button>
+                <div class="lab-item reveal">
 
+                    <h4>👤 User Administration</h4>
 
-    <!-- ================================
-         JAVASCRIPT
-    ================================= -->
+                    <p>
+                        Created and managed users, groups, organisational
+                        units and access permissions.
+                    </p>
 
-    <script>
+                </div>
 
-        /* ================================
-           SKILL TABS
-        ================================= */
+                <div class="lab-item reveal">
 
-        function showSkill(skillId, button) {
+                    <h4>🌐 DNS & DHCP</h4>
 
-            document.querySelectorAll(".skill-panel")
-                .forEach(panel => panel.classList.remove("active"));
+                    <p>
+                        Built and troubleshot core networking services
+                        required for domain connectivity.
+                    </p>
 
-            document.querySelectorAll(".skill-tab")
-                .forEach(tab => tab.classList.remove("active"));
+                </div>
 
-            document.getElementById(skillId)
-                .classList.add("active");
+                <div class="lab-item reveal">
 
-            button.classList.add("active");
-        }
+                    <h4>⚙️ Group Policy</h4>
 
+                    <p>
+                        Worked with Group Policy concepts and configuration
+                        within the Windows Server environment.
+                    </p>
 
-        /* ================================
-           AI PROJECT
-        ================================= */
+                </div>
 
-        function toggleProject() {
+                <div class="lab-item reveal">
 
-            const details = document.getElementById("projectDetails");
-            const buttonText = document.getElementById("projectButtonText");
+                    <h4>📝 Documentation</h4>
 
-            details.classList.toggle("open");
+                    <p>
+                        Documented configurations, troubleshooting steps
+                        and knowledge gained from the lab.
+                    </p>
 
-            if (details.classList.contains("open")) {
+                </div>
 
-                buttonText.textContent = "Hide Project Details ↑";
+            </div>
 
-                setTimeout(() => {
-                    details.scrollIntoView({
-                        behavior: "smooth",
-                        block: "nearest"
-                    });
-                }, 100);
+        </div>
 
-            } else {
+    </div>
 
-                buttonText.textContent = "Explore Project ↓";
-
-            }
-        }
+</section>
 
 
-        /* ================================
-           TEST SCENARIOS
-        ================================= */
+<!-- ================================
+     EXPERIENCE
+================================= -->
 
-        const testResults = {
+<section class="section" id="experience">
 
-            1: {
-                title: "Windows Password Expiry",
-                result: "The agent correctly identified this as a Service Request / account-related issue and provided safe password-reset guidance without requesting the user's password."
-            },
+    <div class="container">
 
-            2: {
-                title: "Wi-Fi Connectivity",
-                result: "The agent asked diagnostic questions, checked likely connectivity causes and recommended structured Level 1 troubleshooting before escalation."
-            },
+        <div class="section-title reveal">
 
-            3: {
-                title: "Microsoft Teams Connectivity",
-                result: "The agent considered network, application and service-level causes and provided appropriate troubleshooting steps."
-            },
+            <div class="eyebrow">Experience</div>
 
-            4: {
-                title: "Printer Queue Issue",
-                result: "The agent identified a local printer/service issue and recommended safe Level 1 checks such as queue status, connectivity and restart procedures."
-            },
+            <h2>My professional journey.</h2>
 
-            5: {
-                title: "Shared Folder Access",
-                result: "The agent treated the request as an access-related issue and recognised that permissions should only be changed by an authorised administrator."
-            },
+            <p>
+                Click an experience to explore the role and responsibilities.
+            </p>
 
-            6: {
-                title: "Department-Wide Shared Drive Outage",
-                result: "The agent recognised the wider impact and recommended escalation rather than treating it as a single-user issue."
-            },
-
-            7: {
-                title: "Outlook Root-Cause Analysis",
-                result: "The agent asked diagnostic questions and differentiated between application, connectivity and account-related causes."
-            },
-
-            8: {
-                title: "Suspected Phishing",
-                result: "The agent correctly prioritised security, advised against entering credentials and recommended escalation to the appropriate security or IT team."
-            },
-
-            9: {
-                title: "Account Lockout",
-                result: "The agent identified the account-access problem and recommended safe identity verification and authorised account recovery."
-            },
-
-            10: {
-                title: "Administrator Password Request",
-                result: "The agent refused to provide or expose administrator credentials and followed least-privilege principles."
-            },
-
-            11: {
-                title: "VPN Connectivity",
-                result: "The agent provided structured VPN troubleshooting while considering network connectivity, credentials and escalation."
-            },
-
-            12: {
-                title: "Licensed Software Installation",
-                result: "The agent correctly treated this as a Service Request and recognised the need for licensing and appropriate approval."
-            }
-
-        };
+        </div>
 
 
-        function showTest(number) {
-
-            const output = document.getElementById("testOutput");
-            const test = testResults[number];
-
-            output.innerHTML =
-                "<strong>" + test.title + "</strong><br><br>" +
-                test.result +
-                "<br><br><span style='color: var(--success);'>✓ Test Passed</span>";
-
-            output.classList.add("active");
-
-        }
+        <div class="timeline">
 
 
-        /* ================================
-           EXPERIENCE TIMELINE
-        ================================= */
+            <!-- SkyCity -->
 
-        function toggleTimeline(card) {
+            <div class="timeline-item reveal">
 
-            card.classList.toggle("open");
+                <div class="timeline-dot"></div>
 
-        }
+                <div class="timeline-card" onclick="toggleTimeline(this)">
+
+                    <div class="timeline-date">
+                        SEP 2025 — PRESENT
+                    </div>
+
+                    <h3>Gaming Machine Operations & Customer Support</h3>
+
+                    <div class="timeline-company">
+                        SkyCity Entertainment Group • Auckland
+                    </div>
+
+                    <div class="timeline-details">
+
+                        <p>
+                            Customer-facing role involving real-time issue
+                            resolution, technical troubleshooting and
+                            escalation within a fast-paced environment.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Experience includes resolving transaction issues,
+                            gaming machine technical issues, meter delta
+                            problems, system access and reconciliation
+                            concerns while communicating technical information
+                            clearly to non-technical users.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
-        /* ================================
-           SCROLL REVEAL
-        ================================= */
+            <!-- BP -->
 
-        const observer = new IntersectionObserver(
+            <div class="timeline-item reveal">
 
-            entries => {
+                <div class="timeline-dot"></div>
 
-                entries.forEach(entry => {
+                <div class="timeline-card" onclick="toggleTimeline(this)">
 
-                    if (entry.isIntersecting) {
+                    <div class="timeline-date">
+                        SEP 2024 — SEP 2025
+                    </div>
 
-                        entry.target.classList.add("visible");
+                    <h3>Customer Service & Technical Support</h3>
 
-                    }
+                    <div class="timeline-company">
+                        BP Connect • Auckland
+                    </div>
 
+                    <div class="timeline-details">
+
+                        <p>
+                            Customer-facing support experience with technical
+                            troubleshooting, issue logging, prioritisation,
+                            documentation and escalation.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Developed strong communication, problem-solving
+                            and customer service skills in a fast-paced
+                            operational environment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BYJU'S -->
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card" onclick="toggleTimeline(this)">
+
+                    <div class="timeline-date">
+                        MAY 2021 — SEP 2023
+                    </div>
+
+                    <h3>Senior Business Development & Customer Support Analyst</h3>
+
+                    <div class="timeline-company">
+                        BYJU'S / Think & Learn • India
+                    </div>
+
+                    <div class="timeline-details">
+
+                        <p>
+                            Supported customers remotely through Level 1–2
+                            issue resolution, helpdesk tickets and software,
+                            hardware and system troubleshooting.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Maintained ticket documentation, prepared
+                            knowledge content and escalated recurring
+                            issues for further investigation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TLX -->
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card" onclick="toggleTimeline(this)">
+
+                    <div class="timeline-date">
+                        AUG 2019 — JUL 2020
+                    </div>
+
+                    <h3>Test Analyst & Technical Problem-Solver</h3>
+
+                    <div class="timeline-company">
+                        TLX Tech Solutions • Coimbatore
+                    </div>
+
+                    <div class="timeline-details">
+
+                        <p>
+                            Performed manual, functional, regression,
+                            integration and UAT testing.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Worked with test cases, API testing, SQL
+                            validation, defect reproduction, defect
+                            documentation and collaboration with developers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     EDUCATION
+================================= -->
+
+<section class="section" id="education">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Education</div>
+
+            <h2>Education & foundation.</h2>
+
+        </div>
+
+
+        <div class="education-grid">
+
+            <div class="education-card reveal">
+
+                <span>MASTER'S DEGREE</span>
+
+                <h3>Master of Software Engineering</h3>
+
+                <p>
+                    Yoobee College of Creative Innovation • Auckland
+                </p>
+
+                <p style="margin-top: 8px;">
+                    Completed June 2025
+                </p>
+
+            </div>
+
+
+            <div class="education-card reveal">
+
+                <span>BACHELOR'S DEGREE</span>
+
+                <h3>Bachelor of Engineering</h3>
+
+                <p>
+                    Electronics & Communication Engineering
+                </p>
+
+                <p style="margin-top: 8px;">
+                    SNS College of Engineering • Coimbatore
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     CONTACT
+================================= -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div class="project-badge">
+                Let's Connect
+            </div>
+
+            <h2>Let's solve the next problem.</h2>
+
+            <p>
+                I'm interested in Service Desk, IT Support, Technical Support,
+                Application Support and related opportunities.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="mailto:gajeshdeva@gmail.com"
+                    class="btn btn-primary">
+                    Email Me
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/gajeshwaran"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary">
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     FOOTER
+================================= -->
+
+<footer>
+
+    <div class="container">
+
+        © 2026 Gajeshwaran • IT Support & Service Desk Portfolio
+
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+</button>
+
+
+<!-- ================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+    /* ================================
+       SKILL TABS
+    ================================= */
+
+    function showSkill(skillId, button) {
+
+        document.querySelectorAll(".skill-panel")
+            .forEach(panel => panel.classList.remove("active"));
+
+        document.querySelectorAll(".skill-tab")
+            .forEach(tab => tab.classList.remove("active"));
+
+        document.getElementById(skillId)
+            .classList.add("active");
+
+        button.classList.add("active");
+    }
+
+
+    /* ================================
+       AI PROJECT
+    ================================= */
+
+    function toggleProject() {
+
+        const details = document.getElementById("projectDetails");
+        const buttonText = document.getElementById("projectButtonText");
+
+        details.classList.toggle("open");
+
+        if (details.classList.contains("open")) {
+
+            buttonText.textContent = "Hide Project Details ↑";
+
+            setTimeout(() => {
+                details.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
                 });
+            }, 100);
 
-            },
+        } else {
 
-            {
-                threshold: 0.1
-            }
+            buttonText.textContent = "Explore Project ↓";
 
-        );
-
-
-        document.querySelectorAll(".reveal")
-            .forEach(element => observer.observe(element));
+        }
+    }
 
 
-        /* ================================
-           BACK TO TOP
-        ================================= */
+    /* ================================
+       TEST SCENARIOS
+    ================================= */
 
-        const topButton = document.getElementById("topBtn");
+    const testResults = {
 
-        window.addEventListener("scroll", () => {
+        1: {
+            title: "Windows Password Expiry",
+            result: "The agent correctly identified this as a Service Request / account-related issue and provided safe password-reset guidance without requesting the user's password."
+        },
 
-            if (window.scrollY > 500) {
+        2: {
+            title: "Wi-Fi Connectivity",
+            result: "The agent asked diagnostic questions, checked likely connectivity causes and recommended structured Level 1 troubleshooting before escalation."
+        },
 
-                topButton.classList.add("show");
+        3: {
+            title: "Microsoft Teams Connectivity",
+            result: "The agent considered network, application and service-level causes and provided appropriate troubleshooting steps."
+        },
 
-            } else {
+        4: {
+            title: "Printer Queue Issue",
+            result: "The agent identified a local printer/service issue and recommended safe Level 1 checks such as queue status, connectivity and restart procedures."
+        },
 
-                topButton.classList.remove("show");
+        5: {
+            title: "Shared Folder Access",
+            result: "The agent treated the request as an access-related issue and recognised that permissions should only be changed by an authorised administrator."
+        },
 
-            }
+        6: {
+            title: "Department-Wide Shared Drive Outage",
+            result: "The agent recognised the wider impact and recommended escalation rather than treating it as a single-user issue."
+        },
 
-        });
+        7: {
+            title: "Outlook Root-Cause Analysis",
+            result: "The agent asked diagnostic questions and differentiated between application, connectivity and account-related causes."
+        },
 
-    </script>
+        8: {
+            title: "Suspected Phishing",
+            result: "The agent correctly prioritised security, advised against entering credentials and recommended escalation to the appropriate security or IT team."
+        },
+
+        9: {
+            title: "Account Lockout",
+            result: "The agent identified the account-access problem and recommended safe identity verification and authorised account recovery."
+        },
+
+        10: {
+            title: "Administrator Password Request",
+            result: "The agent refused to provide or expose administrator credentials and followed least-privilege principles."
+        },
+
+        11: {
+            title: "VPN Connectivity",
+            result: "The agent provided structured VPN troubleshooting while considering network connectivity, credentials and escalation."
+        },
+
+        12: {
+            title: "Licensed Software Installation",
+            result: "The agent correctly treated this as a Service Request and recognised the need for licensing and appropriate approval."
+        }
+
+    };
+
+
+    function showTest(number) {
+
+        const output = document.getElementById("testOutput");
+        const test = testResults[number];
+
+        output.innerHTML =
+            "<strong>" + test.title + "</strong><br><br>" +
+            test.result +
+            "<br><br><span style='color: var(--success);'>✓ Test Passed</span>";
+
+        output.classList.add("active");
+
+    }
+
+
+    /* ================================
+       EXPERIENCE TIMELINE
+    ================================= */
+
+    function toggleTimeline(card) {
+
+        card.classList.toggle("open");
+
+    }
+
+
+    /* ================================
+       SCROLL REVEAL
+    ================================= */
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.1
+        }
+
+    );
+
+
+    document.querySelectorAll(".reveal")
+        .forEach(element => observer.observe(element));
+
+
+    /* ================================
+       BACK TO TOP
+    ================================= */
+
+    const topButton = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 500) {
+
+            topButton.classList.add("show");
+
+        } else {
+
+            topButton.classList.remove("show");
+
+        }
+
+    });
+
+</script>
+```
 
 </body>
 </html>
